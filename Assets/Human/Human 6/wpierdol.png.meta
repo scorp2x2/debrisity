@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: b3b3b5187e85f3d439d260a310b80da4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4498059739664322461
+    second: wpierdol_0
+  - first:
+      213: -296245327124432625
+    second: wpierdol_1
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wpierdol_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6.0154877, y: 19.49797}
+        - {x: 5.9579144, y: 18.510056}
+        - {x: 4.9440937, y: 18.462116}
+        - {x: 5.0424995, y: 17.561989}
+        - {x: 3.9947662, y: 17.443481}
+        - {x: 4.0345097, y: 15.522621}
+        - {x: 2.9616852, y: 15.457012}
+        - {x: 3.0119133, y: 14.556709}
+        - {x: 2.043295, y: 14.4925}
+        - {x: 2.0543633, y: 13.555523}
+        - {x: 1.0281944, y: 13.458782}
+        - {x: 0.9813919, y: 12.544048}
+        - {x: -0.96450424, y: 12.496248}
+        - {x: -0.9856281, y: 13.531757}
+        - {x: -1.9454365, y: 13.521595}
+        - {x: -1.9771519, y: 14.537006}
+        - {x: -2.972519, y: 14.513691}
+        - {x: -2.9835644, y: 15.47773}
+        - {x: -3.9977455, y: 15.467754}
+        - {x: -3.9853382, y: 17.512096}
+        - {x: -4.998106, y: 17.48465}
+        - {x: -4.951679, y: 18.50415}
+        - {x: -5.99774, y: 18.490322}
+        - {x: -6.000696, y: 19.458336}
+        - {x: -8.985092, y: 19.5}
+        - {x: -17, y: 19.5}
+        - {x: -17, y: -8.5}
+        - {x: -12, y: -19.5}
+        - {x: 12, y: -19.5}
+        - {x: 17, y: -11.5}
+        - {x: 17, y: 19.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f8d2160815c6e30800000000000000
+      internalID: 4498059739664322461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wpierdol_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 32
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 12}
+        - {x: -13, y: 12}
+        - {x: -17, y: 4}
+        - {x: -9, y: -7}
+        - {x: -6, y: -7}
+        - {x: -6, y: -8}
+        - {x: -5, y: -8}
+        - {x: -5, y: -9}
+        - {x: -4, y: -9}
+        - {x: -4, y: -11}
+        - {x: -3, y: -11}
+        - {x: -3, y: -12}
+        - {x: -2, y: -12}
+        - {x: -2, y: -13}
+        - {x: -1, y: -13}
+        - {x: -1, y: -14}
+        - {x: 1, y: -14}
+        - {x: 1, y: -13}
+        - {x: 2, y: -13}
+        - {x: 2, y: -12}
+        - {x: 3, y: -12}
+        - {x: 3, y: -11}
+        - {x: 4, y: -11}
+        - {x: 4, y: -9}
+        - {x: 5, y: -9}
+        - {x: 5, y: -8}
+        - {x: 6, y: -8}
+        - {x: 6, y: -7}
+        - {x: 9, y: -7}
+        - {x: 17, y: 0}
+        - {x: 14, y: 10}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09f06ec17683ebf0800000000000000
+      internalID: -296245327124432625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

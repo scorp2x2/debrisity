@@ -11,29 +11,52 @@ public class HumanController : MonoBehaviour
     public Vector3 pointMove;
     public RectTransform rect;
 
+    public int spawnLampDay;
+
+    public LampController lamp;
+
     // Start is called before the first frame update
     void Start()
     {
         rect = GetComponent<RectTransform>();
-        var sity = GameObject.FindWithTag("Sity").GetComponent<RectTransform>();
+
+        var s = GameObject.FindWithTag("Sity");
+        if (s == null) return;
+        var sity = s.GetComponent<RectTransform>();
         sizeSity = new Vector2(sity.rect.width, sity.rect.height);
+
+        GenerateLamp();
 
         rect.localPosition = RandomzePoint();
 
         pointMove = RandomzePoint();
     }
 
-    float time = 0;
+
+    void GenerateLamp()
+    {
+        var r = Random.Range(.000f, 1.000f);
+        var p = 2f / (float)SityController.Instantiate.peoples.Count;
+        if (r <= p)
+        {
+            spawnLampDay = ManagerResources.Instantiate.days.Count + Random.Range(1, GameConstant.CountDaysFromDiamond);
+        }
+        else
+            spawnLampDay = -1;
+    }
+    
+    
+    float distantion = 0;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rect.localPosition = Vector3.Lerp(rect.localPosition, pointMove, time / _speed);
+        rect.localPosition = Vector3.MoveTowards(rect.localPosition, pointMove, distantion * Time.deltaTime * _speed);
 
         if (Vector3.Distance(rect.localPosition, pointMove) < 1)
             pointMove = RandomzePoint();
 
-        time += Time.deltaTime;
+        //time += Time.deltaTime;
     }
 
     Vector3 RandomzePoint()
@@ -43,7 +66,14 @@ public class HumanController : MonoBehaviour
         var pointMove = new Vector3(x, y, 0);
 
         _speed = speed * Random.Range(.8f, 1.2f);
-        time = 0;
+        distantion = Vector3.Distance(rect.localPosition, pointMove);
+
+        if (lamp != null)
+            if (spawnLampDay == ManagerResources.Instantiate.days.Count)
+            {
+                lamp.Spawn();
+                GenerateLamp();
+            }
 
         return pointMove;
     }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87265ef1308af14ebef5eda39ec172e, type: 3}
+  m_Name: 34
+  m_EditorClassIdentifier: 
+  Name: "\u041D\u0430\u0431\u0435\u0433 \u0440\u0430\u0437\u0431\u043E\u0439\u043D\u0438\u043A\u043E\u0432"
+  Text: "\u0418\u0437 \u0441\u043E\u0441\u0435\u0434\u043D\u0435\u0433\u043E \u043F\u043E\u0441\u0435\u043B\u0435\u043D\u0438\u044F
+    \u043D\u0430\u043F\u0430\u043B\u0438 \u0440\u0430\u0437\u0431\u043E\u0439\u043D\u0438\u043A\u0438
+    \u043E\u0433\u0440\u0430\u0431\u0438\u043B\u0438 \u0438 \u0443\u0431\u0438\u043B\u0438
+    \u0436\u0438\u0442\u0435\u043B\u0435\u0439"
+  Sprite: {fileID: 0}
+  CardPrizes:
+  - {fileID: 11400000, guid: 6ee6302555d0805409d384d7076ddd9f, type: 2}
+  - {fileID: 11400000, guid: 87907745560ffae498b925cae273fd30, type: 2}
+  - {fileID: 11400000, guid: 76d1da2429042c04ea56d9daf0e158d8, type: 2}

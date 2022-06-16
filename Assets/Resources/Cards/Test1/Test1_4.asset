@@ -15,4 +15,4 @@ MonoBehaviour:
   prizeCount: 5
   CardPrizeVector: 0
   Text: test
-  ProductionType: 3
+  production: {fileID: 11400000, guid: 48676ec96aaa2a344b360280ddc9b035, type: 2}

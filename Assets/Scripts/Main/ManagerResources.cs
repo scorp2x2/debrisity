@@ -6,65 +6,75 @@ public class ManagerResources : MonoBehaviour
 {
     public static ManagerResources Instantiate;
 
-    public Dictionary<ProductionType, List<StatisticResourceElement>> resourcesLogic;
+    public Dictionary<Production, List<StatisticResourceElement>> resourcesLogic;
+
+    public Production water;
+    public Production food;
+    public Production debris;
+    public Production gold;
+    public Production people;
+    public Production days;
+    public Production diamonds;
+
+    public void SetDefault()
+    {
+        water.SetDefault();
+        food.SetDefault();
+        debris.SetDefault();
+        gold.SetDefault();
+        people.SetDefault();
+        days.SetDefault();
+    }
     
     void Awake()
     {
         Instantiate = this;
+        resourcesLogic = new Dictionary<Production, List<StatisticResourceElement>>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    	resourcesLogic=new Dictionary<ProductionType, List<StatisticResourceElement>>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
     //Один человек пьёт примерно 0.3-0.4 воды в день
     //Один человек ест примерно 0.3-0.4 еды в день
 
     public void CalcEconomicDay()
     {
-        var countP = Resources.People;
+        var countP = people.Count;
         var drinkWater = CalcEat();
         var eatFood = CalcEat();
-        var addGold = (int) Mathf.Round(countP * Random.Range(.1f, .2f));
-        var addDebris = (int) Mathf.Round(countP * Random.Range(0, .1f));
+        var addGold = Mathf.RoundToInt(countP * ManagerFactorys.Instantiate.gold.GetProduction() / 10f);
+        var addDebris = Mathf.RoundToInt(countP * ManagerFactorys.Instantiate.debris.GetProduction() / 10f);
 
-        Resources.EatResource(ProductionType.Food, eatFood);
-        WriteStatistic(ProductionType.Food, "Затраты за день", eatFood, false);
-        Resources.EatResource(ProductionType.Water, drinkWater);
-        WriteStatistic(ProductionType.Water,  "Затраты за день",drinkWater, false);
-        Resources.AddResource(ProductionType.Gold, addGold);
-        WriteStatistic(ProductionType.Gold, "Заработок за день",addGold);
-        Resources.AddResource(ProductionType.Debris, addDebris);
-        WriteStatistic(ProductionType.Debris, "Заработок за день",addDebris);
+        food.Eat(eatFood);
+        WriteStatistic(food, "Затраты за день", eatFood, false);
+        water.Eat(drinkWater);
+        WriteStatistic(water, "Затраты за день", drinkWater, false);
+        gold.Add(addGold);
+        WriteStatistic(gold, "Заработок за день", addGold);
+        debris.Add(addDebris);
+        WriteStatistic(debris, "Заработок за день", addDebris);
     }
 
     public int CalcEat()
     {
-        var count = Mathf.Round(Resources.People * Random.Range(.3f, .4f));
-        if (Resources.People > Resources.MaxPeople)
-            count += Mathf.Round(Resources.MaxPeople - Resources.People * Random.Range(.3f, .4f)) *
-                     (1 - Resources.People / Resources.MaxPeople);
+        var count = Mathf.Round(people.Count *
+                                Random.Range(GameConstant.CountEatPeople.x, GameConstant.CountEatPeople.y));
+        if (people.Count > people.MaxCount)
+            count += Mathf.Round(people.MaxCount - people.Count * Random.Range(.3f, .4f)) *
+                     (1 - people.Count / people.MaxCount);
         return (int) count;
     }
 
     public void CalcPeople()
     {
-        var food = Resources.Food;
-        var water = Resources.Water;
-        var people = Resources.People;
-        var days = Resources.Day;
+        var food = this.food.Count;
+        var water = this.water.Count;
+        var people = this.people.Count;
+        var days = this.days;
         var deadPeople = 0;
         var livePeople = 0;
 
         if (food < 0)
         {
-            var dfp = Mathf.Abs(food * Random.Range(.3f, .4f));
+            var dfp = Mathf.Abs(food * Random.Range(GameConstant.CountEatPeople.x, GameConstant.CountEatPeople.y));
             if (dfp < 1)
                 deadPeople++;
             else
@@ -73,7 +83,7 @@ public class ManagerResources : MonoBehaviour
 
         if (water < 0)
         {
-            var dwp = Mathf.Abs(food * Random.Range(.3f, .4f));
+            var dwp = Mathf.Abs(water * Random.Range(GameConstant.CountEatPeople.x, GameConstant.CountEatPeople.y));
             if (dwp < 1)
                 deadPeople++;
             else
@@ -82,36 +92,58 @@ public class ManagerResources : MonoBehaviour
 
         if (deadPeople == 0)
         {
-            if (Random.Range(0, 4) == 1)
-                livePeople += Mathf.RoundToInt((days % 3 == 0 ? people / 2 : 1) * Random.Range(0.5f, 1.5f));
-        }
+            if (days.Count % 9 == 0)
+            {
+                int c = Mathf.RoundToInt(people * Random.Range(0.4f, 1.2f));
+                livePeople += c;
+            }
+            else if (Random.Range(0, 1f) <= GameConstant.ProcentNewPeople)
+            {
+                int c = Mathf.RoundToInt(((float)people / 2) * Random.Range(0.5f, 1.5f));
+                livePeople += Mathf.RoundToInt(c + c * (days.Count / GameConstant.UpNewPeople));
+            }
 
-        Resources.KillPeople(deadPeople);
-        if(deadPeople!=0) ManagerResources.Instantiate.WriteStatistic(ProductionType.People, "Умерло от голода", deadPeople, false);
-        Resources.AddResource(ProductionType.People, livePeople);
-        if(livePeople!=0) ManagerResources.Instantiate.WriteStatistic(ProductionType.People, "Родилось", livePeople);
+            var increase = ManagerFactorys.Instantiate.people.GetIncrease();
+            if (increase != 0)
+                livePeople = Mathf.RoundToInt(livePeople * increase);
+        }
+            
+        KillPeople(deadPeople);
+        if (deadPeople != 0)
+            WriteStatistic(this.people, "Умерло от голода", deadPeople, false);
+        this.people.Add(livePeople);
+        if (livePeople != 0)
+            WriteStatistic(this.people, "Родилось", livePeople);
     }
-    
-    public void WriteStatistic(ProductionType productionType, string message, int count, bool vector=true){
-    	if(!resourcesLogic.ContainsKey(productionType))
-    		resourcesLogic.Add(productionType, new List<StatisticResourceElement>());
-    	
-    	resourcesLogic[productionType].Add(new StatisticResourceElement(message, count, vector));
+
+    public void KillPeople(int count)
+    {
+        Debug.Log("Kill people: " + count);
+
+        people.Eat(count);
+        if (people.Count <= 0)
+        {
+            GameController.Instantiate.GameOver();
+        }
     }
-    
-    public void CleatStatistic(){
-    	resourcesLogic.Clear();
+
+    public void WriteStatistic(Production production, string message, int count, bool vector = true)
+    {
+        if (!resourcesLogic.ContainsKey(production))
+            resourcesLogic.Add(production, new List<StatisticResourceElement>());
+
+        resourcesLogic[production].Add(new StatisticResourceElement(message, count, vector));
     }
-    
-    public class StatisticResourceElement{
-    	public string message;
-    	public bool vector;
-    	public int count;
-    	
-    	public StatisticResourceElement(string message, int count, bool vector=true){
-    		this.message = message;
- 			this.vector=vector;
-			this.count=count;
-    	}
+
+    public void ClearStatistic()
+    {
+        resourcesLogic.Clear();
     }
+
+    public void AddDay()
+    {
+        days.Add(1);
+    }
+
+   
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class SityController : MonoBehaviour
 {
     public static SityController Instantiate;
-    public GameObject peoplePrefab;
+    public List<HumanSkin> HumanSkins;
     public GameObject panelPeoples;
     public List<HumanController> peoples;
 
@@ -18,12 +18,13 @@ public class SityController : MonoBehaviour
         Instantiate = this;
 
         factorys = FindObjectsOfType<FactoryController>().ToList();
+        HumanSkins = Resources.LoadAll<HumanSkin>("HumanSkins").Where(a => a.HumanSkinData.IsSelected).ToList();
     }
 
     public void UpdateCountPeople()
     {
-        var count = (int) Mathf.Round(Resources.People * Random.Range(.9f, 1.1f));
-
+        var count = (int) Mathf.Round(ManagerResources.Instantiate.people.Count * Random.Range(.7f, 1.3f));
+        count = Mathf.Min(count, GameConstant.MaxCountHumanInCity);
         if (count < peoples.Count)
         {
             var c = peoples.Count - count;
@@ -49,7 +50,8 @@ public class SityController : MonoBehaviour
 
     public void SpawnPeople()
     {
-        var p = Instantiate(peoplePrefab, panelPeoples.transform).GetComponent<HumanController>();
+        var p = Instantiate(HumanSkins.GetRandomElement().Prefab, panelPeoples.transform)
+            .GetComponent<HumanController>();
         peoples.Add(p);
     }
 
@@ -61,24 +63,25 @@ public class SityController : MonoBehaviour
         }
     }
 
-    public void SetFactoryLevelEfficiency(int level = 1)
+//    public void SetFactoryLevelEfficiency(int level = 1)
+//    {
+//        foreach (var element in factorys)
+//        {
+//            element.SetLevelEfficiency(level);
+//        }
+//    }
+//
+//    public void SetFactoryLevelCapacity(int level = 1)
+//    {
+//        foreach (var element in factorys)
+//        {
+//            element.SetLevelCapacity(level);
+//        }
+//    }
+
+    public void UpdateInfoFactorys()
     {
         foreach (var element in factorys)
-        {
-            element.SetLevelEfficiency(level);
-        }
-    }
-    
-    public void SetFactoryLevelCapacity(int level = 1)
-    {
-        foreach (var element in factorys)
-        {
-            element.SetLevelCapacity(level);
-        }
-    }
-    
-    public void UpdateInfoFactorys(){
-    	foreach (var element in factorys)
         {
             element.LoadInfo();
         }

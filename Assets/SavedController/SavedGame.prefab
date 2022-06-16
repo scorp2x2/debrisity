@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7124821906886145111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4697430873681557325}
+  - component: {fileID: 4008995450904688304}
+  m_Layer: 0
+  m_Name: SavedGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4697430873681557325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124821906886145111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.181164, y: -129.17839, z: 127.62603}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4008995450904688304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124821906886145111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d1b1d124a889f409eefa48a91cf815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Productions:
+  - {fileID: 11400000, guid: d75bf68f7febb9846977bc084b33c4f9, type: 2}
+  - {fileID: 11400000, guid: 13d412c192af67a4992e1e414cfe79ee, type: 2}
+  - {fileID: 11400000, guid: 17e92e6a48c774842b5854b31f3a20c8, type: 2}
+  - {fileID: 11400000, guid: 286e3670696bd4d449052f3af4d0a785, type: 2}
+  - {fileID: 11400000, guid: 48676ec96aaa2a344b360280ddc9b035, type: 2}
+  - {fileID: 11400000, guid: 023d3537ec6047141bda379aedc3a8bb, type: 2}
+  - {fileID: 11400000, guid: 5790cb87a41262142a2e4ba6b412bf86, type: 2}
+  Factories:
+  - {fileID: 11400000, guid: f89b0a3480541c7468da0618a3a5a6ce, type: 2}
+  - {fileID: 11400000, guid: 4fa433418c8ae56479b2371b314d6cf4, type: 2}
+  - {fileID: 11400000, guid: 89a099cb8a0e944469c270f0c10208e1, type: 2}
+  - {fileID: 11400000, guid: 6700299a315919749b156de6ba53ca2d, type: 2}
+  - {fileID: 11400000, guid: 34564f15cafd0db4ea323950ca104305, type: 2}
+  HumanSkins:
+  - {fileID: 11400000, guid: 5b08bc2d2d3445442b52796cd2c2fdb9, type: 2}
+  - {fileID: 11400000, guid: 38c04673c9eb8b741ace54556368b619, type: 2}
+  - {fileID: 11400000, guid: 1a486a3f0eed9624da4f0b04ba3daaaa, type: 2}
+  - {fileID: 11400000, guid: 6b3a2465cc3c49640afa58c366cfb3ac, type: 2}
+  - {fileID: 11400000, guid: e632b415a2a1ed940b7ed036d4bdc614, type: 2}
+  - {fileID: 11400000, guid: 5fa33f20649a71e42a08273d45b3fbb1, type: 2}
+  - {fileID: 11400000, guid: 5fa33f20649a71e42a08273d45b3fbb1, type: 2}

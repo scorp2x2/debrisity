@@ -5,40 +5,44 @@ using UnityEngine.UI;
 
 public class FactoryController : MonoBehaviour
 {
-	public Text textLevelCapacity;
-	public Text textLevelEfficiency;
-    // Start is called before the first frame update
-    void Start()
+    public Factory factory;
+
+    public Text textLevelCapacity;
+
+    public Text textLevelEfficiency;
+
+    public void LoadInfo()
     {
-    	//SetLevel(1);
+        textLevelCapacity.text = $"Lvl: {factory.FactoryData.LevelEfficiency}\n+{factory.GetProduction()}";
+        textLevelEfficiency.text = $"Lvl: {factory.FactoryData.LevelCapacity}\nmax:{factory.GetMaxStorage()}";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpLevelCapacity()
     {
-        
+        factory.UpLevelCapacity();
+        LoadInfo();
+    }
+
+    public void SetLevelCapacity(int level)
+    {
+        factory.SetLevelCapacity(level);
+        LoadInfo();
     }
     
-    public virtual void LoadInfo(){
-    	
+    public void UpLevelEfficiency()
+    {
+        factory.UpLevelEfficiency();
+        LoadInfo();
     }
     
-    public virtual void UpLevelEfficiency(){
-    	LoadInfo();
+    public void SetLevelEfficiency(int level)
+    {
+        factory.SetLevelEfficiency(level);
+        LoadInfo();
     }
     
-    public virtual void SetLevelEfficiency(int newlevel){
-    	LoadInfo();
-    }
-    
-    public virtual void UpLevelCapacity(){
-    	LoadInfo();
-    }
-    
-    public virtual void SetLevelCapacity(int newlevel){
-    	LoadInfo();
-    }
-    
-    public virtual void Work(){
+    public void Work()
+    {
+        factory.Work();
     }
 }

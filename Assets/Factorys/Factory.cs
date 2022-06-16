@@ -1,191 +1,101 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class Factory
+[CreateAssetMenu(menuName = "Factory", fileName = "Factory")]
+public class Factory : ScriptableObject
 {
-    public FactoryType FactoryType { get; private set; }
+    public Sprite Icon;
+    public string messageStatistic;
 
-    public int LevelCapacity { get; private set; }
-    public int LevelEfficiency { get; private set; }
+    public Production production;
 
-    public List<Boost> Boosts;
+    public Vector2 Efficiency;
+    public float multiplayEfficiency;
+    public float multiplayCapacity;
+    public float multiplayLVLEfficiency;
+    public float multiplayLVLCapacity;
+    public int Capacity;
+    public int GoldPriceUpgradeEfficiency;
+    public int GoldPriceUpgradeCapacity;
+    public int DebrisPriceUpgradeEfficiency;
+    public int DebrisPriceUpgradeCapacity;
 
-    public Factory(FactoryType factoryType)
+    public FactoryData FactoryData;
+
+    public void UpLevelCapacity() => FactoryData.LevelCapacity++;
+    public void UpLevelEfficiency() => FactoryData.LevelEfficiency++;
+
+    public void SetLevelEfficiency(int level) => FactoryData.LevelEfficiency = level;
+    public void SetLevelCapacity(int level) => FactoryData.LevelCapacity = level;
+
+    public void SetDefault()
     {
-        FactoryType = factoryType;
-        LevelCapacity = 1;
-        LevelEfficiency = 1;
-        Boosts = new List<Boost>();
+        SetLevelCapacity(1);
+        SetLevelEfficiency(1);
     }
-
-    public void UpLevelCapacity() => LevelCapacity++;
-    public void UpLevelEfficiency() => LevelEfficiency++;
-
-    public void SetLevelEfficiency(int level) => LevelEfficiency = level;
-    public void SetLevelCapacity(int level) => LevelCapacity = level;
 
     public void AddBoost(Boost boost)
     {
-        if (Boosts == null) Boosts = new List<Boost>();
+        if (FactoryData.Boosts == null) FactoryData.Boosts = new List<Boost>();
 
-        Boosts.Add(boost);
+        FactoryData.Boosts.Add(boost);
     }
 
     public int GetGoldPriceUpgradeCapacity()
     {
-    	int p=0;
-    	 switch (FactoryType)
-        {
-            case FactoryType.Food:
-                p = GameConstant.GoldPriceFactoryFoodCapacity;
-                break;
-            case FactoryType.Water:
-                p = GameConstant.GoldPriceFactoryWaterCapacity;
-                break;
-            case FactoryType.Debris:
-                p = GameConstant.GoldPriceFactoryStorageCapacity;
-                break;
-            case FactoryType.People:
-                p = GameConstant.GoldPriceFactoryBaracsCapacity;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    	
-    	 return Mathf.RoundToInt((1+(LevelCapacity-1)*0.2f)*p);
+        var p = Instruments.CalcMultiplay(FactoryData.LevelCapacity, multiplayLVLCapacity,
+            GoldPriceUpgradeCapacity); // GoldPriceUpgradeCapacity;
+        return Mathf.RoundToInt(p);
     }
-    
+
     public int GetGoldPriceUpgradeEfficiency()
     {
-        int p=0;
-    	 switch (FactoryType)
-        {
-            case FactoryType.Food:
-                p = GameConstant.GoldPriceFactoryFoodEfficiency;
-                break;
-            case FactoryType.Water:
-                p = GameConstant.GoldPriceFactoryWaterEfficiency;
-                break;
-            case FactoryType.Debris:
-                //p = GameConstant.PriceFactoryStorageEfficiency;
-                break;
-            case FactoryType.People:
-               // p = GameConstant.PriceFactoryBaracsEfficiency;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    	
-    	 return Mathf.RoundToInt((1+(LevelEfficiency-1)*0.2f)*p);
+        var p = Instruments.CalcMultiplay(FactoryData.LevelEfficiency, multiplayLVLEfficiency,
+            GoldPriceUpgradeEfficiency); // GoldPriceUpgradeCapacity;
+        return Mathf.RoundToInt(p);
     }
-    
+
     public int GetDebrisPriceUpgradeCapacity()
     {
-    	int p=0;
-    	 switch (FactoryType)
-        {
-            case FactoryType.Food:
-                p = GameConstant.DebrisPriceFactoryFoodCapacity;
-                break;
-            case FactoryType.Water:
-                p = GameConstant.DebrisPriceFactoryWaterCapacity;
-                break;
-            case FactoryType.Debris:
-                p = GameConstant.DebrisPriceFactoryStorageCapacity;
-                break;
-            case FactoryType.People:
-                p = GameConstant.DebrisPriceFactoryBaracsCapacity;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    	
-    	 return Mathf.RoundToInt((1+(LevelCapacity-1)*0.2f)*p);
+        var p = Instruments.CalcMultiplay(FactoryData.LevelCapacity, multiplayLVLCapacity * 1.1f,
+            DebrisPriceUpgradeCapacity); // GoldPriceUpgradeCapacity;
+        return Mathf.RoundToInt(p);
     }
-    
+
     public int GetDebrisPriceUpgradeEfficiency()
     {
-        int p=0;
-    	 switch (FactoryType)
-        {
-            case FactoryType.Food:
-                p = GameConstant.DebrisPriceFactoryFoodEfficiency;
-                break;
-            case FactoryType.Water:
-                p = GameConstant.DebrisPriceFactoryWaterEfficiency;
-                break;
-            case FactoryType.Debris:
-                //p = GameConstant.PriceFactoryStorageEfficiency;
-                break;
-            case FactoryType.People:
-               // p = GameConstant.PriceFactoryBaracsEfficiency;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    	
-    	 return Mathf.RoundToInt((1+(LevelEfficiency-1)*0.2f)*p);
+        var p = Instruments.CalcMultiplay(FactoryData.LevelEfficiency, multiplayLVLEfficiency * 1.1f,
+            DebrisPriceUpgradeEfficiency); // GoldPriceUpgradeCapacity;
+        return Mathf.RoundToInt(p);
     }
-    
+
     public int GetMaxStorage()
     {
-        return GetMaxStorage(LevelCapacity);
+        return GetMaxStorage(FactoryData.LevelCapacity);
     }
-    
+
     public int GetMaxStorage(int level)
     {
-        int p = 0;
-        switch (FactoryType)
-        {
-            case FactoryType.Food:
-                p = level * GameConstant.FactoryFoodCapacity;
-                break;
-            case FactoryType.Water:
-                p = level * GameConstant.FactoryWaterCapacity;
-                break;
-            case FactoryType.Debris:
-                p = level * GameConstant.FactoryStorageCapacity;
-                break;
-            case FactoryType.People:
-                p = level * GameConstant.FactoryBaracsCapacity;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-
-        return p;
+        if(Capacity==Int32.MaxValue) return Capacity;
+        
+        var p = Instruments.CalcMultiplay(level, multiplayCapacity,
+            Capacity);
+        return Mathf.RoundToInt(p);
     }
 
     public int GetProduction()
     {
-        int p = 0;
-        switch (FactoryType)
-        {
-            case FactoryType.Food:
-                p = LevelEfficiency * GameConstant.FactoryFoodEfficiency;
-                break;
-            case FactoryType.Water:
-                p = LevelEfficiency * GameConstant.FactoryWaterEfficiency;
-                break;
-            case FactoryType.Debris:
-                break;
-            case FactoryType.People:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        return GetProduction(FactoryData.LevelEfficiency);
+    }
 
-        float increase = 0;
-        for (int i = 0; i < Boosts.Count; i++)
-        {
-            increase += Boosts[i].Increase;
-            if (!Boosts[i].CheckBoost())
-            {
-                Boosts.RemoveAt(i);
-                i--;
-            }
-        }
+    public int GetProduction(int level)
+    {
+        int p = Mathf.RoundToInt(Instruments.CalcMultiplay(level, multiplayEfficiency,
+            Random.Range(Efficiency.x, Efficiency.y)));
+
+        float increase = GetIncrease();
 
         if (increase != 0)
             p = Mathf.RoundToInt(p * increase);
@@ -193,24 +103,26 @@ public class Factory
         return p;
     }
 
-    public int GetProduction(int level)
+    public float GetIncrease()
     {
-        switch (FactoryType)
+        float increase = 0;
+        for (int i = 0; i < FactoryData.Boosts.Count; i++)
         {
-            case FactoryType.Food:
-                return level * GameConstant.FactoryFoodEfficiency;
-                break;
-            case FactoryType.Water:
-                return level * GameConstant.FactoryWaterEfficiency;
-                break;
-            case FactoryType.Debris:
-                break;
-            case FactoryType.People:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            increase += FactoryData.Boosts[i].Increase;
+            if (!FactoryData.Boosts[i].CheckBoost())
+            {
+                FactoryData.Boosts.RemoveAt(i);
+                i--;
+            }
         }
 
-        return 0;
+        return increase;
+    }
+
+    public void Work()
+    {
+        int count = GetProduction();
+        production.Add(count);
+        ManagerResources.Instantiate.WriteStatistic(production, messageStatistic, count);
     }
 }

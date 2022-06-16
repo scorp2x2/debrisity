@@ -15,7 +15,7 @@ MonoBehaviour:
   prizeCount: 0
   CardPrizeVector: 1
   Text: -30%
-  FactoryType: 1
+  Factory: {fileID: 11400000, guid: 4fa433418c8ae56479b2371b314d6cf4, type: 2}
   Boost:
-    _duration: -13
+    _duration: -1
     _increase: 0.7

@@ -4,11 +4,21 @@ using UnityEngine;
 [Serializable]
 public class Boost
 {
-    [SerializeField]
-    private int _duration;
-    public int Duration { get =>_duration; private set=>_duration=value; }
+    [SerializeField] private int _duration;
+
+    public int Duration
+    {
+        get => _duration;
+        private set => _duration = value;
+    }
+
     [SerializeField] private float _increase;
-    public float Increase {get => _increase; private set=>_increase=value; }
+
+    public float Increase
+    {
+        get => _increase;
+        private set => _increase = value;
+    }
 
     public Boost(int duration, float increase)
     {
@@ -19,8 +29,6 @@ public class Boost
     public bool CheckBoost()
     {
         Duration--;
-        if (Duration <= 0)
-            return false;
-        return true;
+        return Duration > 0;
     }
 }

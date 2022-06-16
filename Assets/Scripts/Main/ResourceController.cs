@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,26 +11,34 @@ public class ResourceController : MonoBehaviour
     int value;
     public GameObject imageUp;
     public GameObject imageDown;
+    public Image icon;
+
+    public Production production;
 
     // Start is called before the first frame update
     void Start()
     {
+        icon.sprite = production.Icon;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateValue(bool isUpdateArrow)
     {
+        var newValue = production.Count;
+        var maxValue = production.MaxCount;
+        DrawUpDown(newValue, isUpdateArrow);
+        if (maxValue == Int32.MaxValue)
+            textValue.text = $"{newValue.ToString()}";
+        else
+            textValue.text = $"{newValue.ToString()}<size=30><voffset=-0.2em>/{maxValue.ToString()}</voffset></size>";
+
+        this.value = newValue;
     }
 
-    public virtual void UpdateValue(bool isUpdateArrow)
-    {
-    }
-
-    protected void DrawUpDown(int newValue, bool isUpdateArrow)
+    void DrawUpDown(int newValue, bool isUpdateArrow)
     {
         if (value != newValue && isUpdateArrow)
         {
-            bool isUp = value < newValue;
+            var isUp = value < newValue;
             imageUp.SetActive(isUp);
             imageDown.SetActive(!isUp);
         }
@@ -38,16 +47,5 @@ public class ResourceController : MonoBehaviour
             imageUp.SetActive(false);
             imageDown.SetActive(false);
         }
-    }
-
-    protected void SetValue(int value, int maxValue, bool isUpdateArrow)
-    {
-        DrawUpDown(value, isUpdateArrow);
-        this.value = value;
-        if (maxValue == -1)
-            textValue.text = string.Format("{0}<size=25><voffset=-0.2em>", value.ToString());
-        else
-            textValue.text = string.Format("{0}<size=25><voffset=-0.2em>/{1}</voffset></size>", value.ToString(),
-                maxValue.ToString());
     }
 }

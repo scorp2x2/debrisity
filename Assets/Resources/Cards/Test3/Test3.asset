@@ -16,8 +16,9 @@ MonoBehaviour:
   Text: 'test test test test test test test test test test test test test test test
     test test test test test test test test test test test '
   Sprite: {fileID: 0}
-  Cards:
+  CardPrizes:
   - {fileID: 11400000, guid: 6675d765a0bd230428762a63ffcc367b, type: 2}
   - {fileID: 11400000, guid: c72c23a8774ade14aade7fb1cafb8b2c, type: 2}
   - {fileID: 11400000, guid: 154f908add9429e4e94470706b1ca986, type: 2}
   - {fileID: 11400000, guid: ddc965c4850bab44995c1a172a8e2d41, type: 2}
+  - {fileID: 11400000, guid: 0195c23ddf67e8444b957d56a4c1a10b, type: 2}

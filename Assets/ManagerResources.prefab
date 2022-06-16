@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4566967219264361681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4566967219264361683}
+  - component: {fileID: 4566967219264361682}
+  m_Layer: 0
+  m_Name: ManagerResources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4566967219264361683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566967219264361681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.499271, y: 51.05491, z: 179.44733}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4566967219264361682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566967219264361681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ea113c98f53de468d0c85c4cc46c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 11400000, guid: 023d3537ec6047141bda379aedc3a8bb, type: 2}
+  food: {fileID: 11400000, guid: 17e92e6a48c774842b5854b31f3a20c8, type: 2}
+  debris: {fileID: 11400000, guid: 13d412c192af67a4992e1e414cfe79ee, type: 2}
+  gold: {fileID: 11400000, guid: 286e3670696bd4d449052f3af4d0a785, type: 2}
+  people: {fileID: 11400000, guid: 48676ec96aaa2a344b360280ddc9b035, type: 2}
+  days: {fileID: 11400000, guid: d75bf68f7febb9846977bc084b33c4f9, type: 2}
+  diamonds: {fileID: 11400000, guid: 5790cb87a41262142a2e4ba6b412bf86, type: 2}

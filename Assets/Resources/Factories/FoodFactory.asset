@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48f2e68aa344896aeaf554599383f0f, type: 3}
+  m_Name: FoodFactory
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 50b33a1c2a115dc4388cd92c57540260, type: 3}
+  messageStatistic: "\u0421\u0442\u043E\u043B\u043E\u0432\u0430\u044F \u043F\u0440\u043E\u0438\u0437\u0432\u0435\u043B\u0430"
+  production: {fileID: 11400000, guid: 17e92e6a48c774842b5854b31f3a20c8, type: 2}
+  Efficiency: {x: 3, y: 3}
+  multiplayEfficiency: 1.2
+  multiplayCapacity: 1.2
+  multiplayLVLEfficiency: 1.2
+  multiplayLVLCapacity: 1.3
+  Capacity: 10
+  GoldPriceUpgradeEfficiency: 6
+  GoldPriceUpgradeCapacity: 5
+  DebrisPriceUpgradeEfficiency: 2
+  DebrisPriceUpgradeCapacity: 1
+  FactoryData:
+    LevelCapacity: 4
+    LevelEfficiency: 5
+    Boosts: []

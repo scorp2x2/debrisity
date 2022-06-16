@@ -21,26 +21,22 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         gameOverPanel.gameObject.SetActive(false);
-
-        Resources.SetStart();
         SityController.Instantiate.UpdateCountPeople();
-        SityController.Instantiate.SetFactoryLevelEfficiency();
-        SityController.Instantiate.SetFactoryLevelCapacity();
+        ManagerResources.Instantiate?.ClearStatistic();
+        DayController.Instantiate.ReDrawDayCount();
+        PanelStatsController.Instantiate?.Hide();
+        SityController.Instantiate.UpdateInfoFactorys();
 
-        UpdateResourcesUI(false);
+        UpdateResourcesUi(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void NewGame()
     {
+        SavedController.Instantiate.NewGame();
+        StartGame();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public void UpdateResourcesUI(bool isUpdateArrow)
+    public void UpdateResourcesUi(bool isUpdateArrow)
     {
         foreach (var element in resourceControllers)
         {

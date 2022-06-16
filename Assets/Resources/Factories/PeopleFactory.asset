@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48f2e68aa344896aeaf554599383f0f, type: 3}
+  m_Name: PeopleFactory
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 6bf2f56651f63864897972f0067aba0d, type: 3}
+  messageStatistic: "\u041B\u044E\u0434\u0435\u0439 \u043F\u0440\u0438\u0448\u043B\u043E"
+  production: {fileID: 11400000, guid: 48676ec96aaa2a344b360280ddc9b035, type: 2}
+  Efficiency: {x: 0, y: 0}
+  multiplayEfficiency: 0
+  multiplayCapacity: 1.1
+  multiplayLVLEfficiency: 1.2
+  multiplayLVLCapacity: 1.3
+  Capacity: 20
+  GoldPriceUpgradeEfficiency: 0
+  GoldPriceUpgradeCapacity: 10
+  DebrisPriceUpgradeEfficiency: 0
+  DebrisPriceUpgradeCapacity: 2
+  FactoryData:
+    LevelCapacity: 5
+    LevelEfficiency: 1
+    Boosts: []

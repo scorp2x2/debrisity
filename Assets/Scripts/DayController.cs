@@ -5,46 +5,51 @@ using UnityEngine.UI;
 
 public class DayController : MonoBehaviour
 {
-	public static DayController Instantiate;
-	
-	public Text dayText;
-	
+    public static DayController Instantiate;
+
+    public Text dayText;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Instantiate=this;
+        Instantiate = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
-    
-    void ReDrawDayCount(){
-    	dayText.text= Resources.Day.ToString();
+
+    public void ReDrawDayCount()
+    {
+        dayText.text = ManagerResources.Instantiate.days.Count.ToString();
     }
-    
-    public void NextDay(){
-	    PanelFarmController.Instantiate.Show();
+
+    public void NextDay()
+    {
+        PanelFarmController.Instantiate.Show();
+            // PanelFactorysController.Instantiate.Show();
     }
-    
-    public void EndDay(){
-    	Resources.AddDay();
-    	////Resources.GenerateRandomValue();
-    	Debug.Log("CalcEconomicDay");
-    	ManagerResources.Instantiate.CalcEconomicDay();
+
+    public void EndDay()
+    {
+        ManagerResources.Instantiate.AddDay();
+        ////Resources.GenerateRandomValue();
+        Debug.Log("CalcEconomicDay");
+        ManagerResources.Instantiate.CalcEconomicDay();
         Debug.Log("WorkFactorys");
-    	SityController.Instantiate.WorkFactorys();
-    	
+        SityController.Instantiate.WorkFactorys();
+
         Debug.Log("CalcPeople");
         ManagerResources.Instantiate.CalcPeople();
 
         Debug.Log("UpdateResourcesUI");
-    	GameController.Instantiate.UpdateResourcesUI(true);
-    	SityController.Instantiate.UpdateInfoFactorys();
+        GameController.Instantiate.UpdateResourcesUi(true);
+        SityController.Instantiate.UpdateInfoFactorys();
         Debug.Log("UpdateCountPeople");
-		SityController.Instantiate.UpdateCountPeople();
-    	ReDrawDayCount();
+        SityController.Instantiate.UpdateCountPeople();
+        ReDrawDayCount();
+
+        PanelStatsController.Instantiate.Show();
     }
 }

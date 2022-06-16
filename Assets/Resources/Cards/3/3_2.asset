@@ -15,4 +15,8 @@ MonoBehaviour:
   prizeCount: 2
   CardPrizeVector: 0
   Text: "\u0415\u0434\u0438\u0447\u043A\u0430"
-  ProductionType: 0
+  isMultiply: 1
+  prizeMultiply: 0.3
+  rangeMultiply: {x: 2, y: -1}
+  productionMultiply: {fileID: 11400000, guid: 023d3537ec6047141bda379aedc3a8bb, type: 2}
+  production: {fileID: 11400000, guid: 17e92e6a48c774842b5854b31f3a20c8, type: 2}
