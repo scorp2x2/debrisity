@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using Zenject;
 
-public class HumanSkinMagazin : MonoBehaviour
+public class HumanSkinMagazin : MonoBehaviour, IPoolable<HumanSkin, SavedController, IMemoryPool>
 {
     public Transform panelSkin;
     public Text nameSkin;
@@ -18,15 +19,16 @@ public class HumanSkinMagazin : MonoBehaviour
 
     public HumanSkin humanSkin;
 
-    public void Load(HumanSkin humanSkin)
+    SavedController _savedController;
+    ManagerResources _managerResources;
+    MagazinController _magazinController;
+
+    [Inject]
+    public void Construct(SavedController savedController, ManagerResources managerResources, MagazinController magazinController)
     {
-        this.humanSkin = humanSkin;
-
-        panelSkin.ClearChilds();
-        var h = Instantiate(humanSkin.Prefab, panelSkin).GetComponent<HumanController>();
-        h.enabled = false;
-
-        LoadInfo();
+        _savedController = savedController;
+        _managerResources = managerResources;
+        _magazinController = magazinController;
     }
 
     public void LoadInfo()
@@ -36,24 +38,24 @@ public class HumanSkinMagazin : MonoBehaviour
         {
             priceText.text = humanSkin.Price.ToString();
             btBuy.SetActive(true);
-            buy.interactable = ManagerResources.Instantiate.diamonds.Count >= humanSkin.Price;
+            buy.interactable = _managerResources.diamonds.Count >= humanSkin.Price;
         }
         else
         {
             btBuy.SetActive(false);
             btSelected.SetActive(humanSkin.HumanSkinData.IsSelected);
             btUnSelected.SetActive(!humanSkin.HumanSkinData.IsSelected);
-            unSelect.interactable = MagazinController.Instantiate.HumanSkins.Count(a => a.HumanSkinData.IsSelected) > 1;
+            unSelect.interactable = _magazinController.HumanSkins.Count(a => a.HumanSkinData.IsSelected) > 1;
         }
     }
 
     public void Buy()
     {
-        if (ManagerResources.Instantiate.diamonds.Eat(humanSkin.Price))
+        if (_managerResources.diamonds.Eat(humanSkin.Price))
         {
             humanSkin.HumanSkinData.IsBuy = true;
-            MagazinController.Instantiate.UpdateInfoSkin();
-            SavedController.Instantiate.SaveGame();
+            _magazinController.UpdateInfoSkin();
+            _savedController.SaveGame();
         }
     }
 
@@ -62,8 +64,8 @@ public class HumanSkinMagazin : MonoBehaviour
         if (!humanSkin.HumanSkinData.IsBuy) return;
 
         humanSkin.HumanSkinData.IsSelected = true;
-        MagazinController.Instantiate.UpdateInfoSkin();
-        SavedController.Instantiate.SaveGame();
+        _magazinController.UpdateInfoSkin();
+        _savedController.SaveGame();
     }
 
     public void UnSelect()
@@ -71,7 +73,29 @@ public class HumanSkinMagazin : MonoBehaviour
         if (!humanSkin.HumanSkinData.IsBuy) return;
 
         humanSkin.HumanSkinData.IsSelected = false;
-        MagazinController.Instantiate.UpdateInfoSkin();
-        SavedController.Instantiate.SaveGame();
+        _magazinController.UpdateInfoSkin();
+        _savedController.SaveGame();
+    }
+
+    public void OnDespawned()
+    {
+
+    }
+
+    public void OnSpawned(HumanSkin p1, SavedController p2, IMemoryPool p3)
+    {
+        this.humanSkin = p1;
+        _savedController = p2;
+
+        panelSkin.ClearChilds();
+        var h = Instantiate(humanSkin.Prefab, panelSkin).GetComponent<HumanController>();
+        h.enabled = false;
+
+        LoadInfo();
+    }
+
+    public class Factory : PlaceholderFactory<HumanSkin, SavedController, HumanSkinMagazin>
+    {
+
     }
 }

@@ -41,8 +41,8 @@ public class FactoryController : MonoBehaviour
         LoadInfo();
     }
     
-    public void Work()
+    public void Work(ManagerResources managerResources)
     {
-        factory.Work();
+        factory.Work(managerResources);
     }
 }

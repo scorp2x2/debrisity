@@ -16,5 +16,6 @@ MonoBehaviour:
   Name: "\u0412\u0441\u0435\u0437\u043D\u0430\u0439\u043A\u0430"
   Price: 10
   HumanSkinData:
-    IsBuy: 0
-    IsSelected: 0
+    IsBuy: 1
+    IsSelected: 1
+    Name: "\u0412\u0441\u0435\u0437\u043D\u0430\u0439\u043A\u0430"

@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 [Serializable]
-public class PlayerData : MonoBehaviour
+public class PlayerData
 {
-    []
     public PlayerStaticData PlayerStaticData;
-    public static PlayerData Instantiate;
 
     public List<Production> Productions;
     public List<Factory> Factories;
@@ -16,10 +15,9 @@ public class PlayerData : MonoBehaviour
     public List<HumanSkin> HumanSkins;
     //public PlayerData PlayerData { get; private set; }
 
-    private void Awake()
+    [Inject]
+    private void Construct()
     {
-        Instantiate = this;
-
         Productions = Resources.LoadAll<Production>("Productions").OrderBy(a => a.name).ToList();
         Factories = Resources.LoadAll<Factory>("Factories").OrderBy(a => a.name).ToList();
         HumanSkins = Resources.LoadAll<HumanSkin>("HumanSkins").OrderBy(a => a.name).ToList();
@@ -30,9 +28,5 @@ public class PlayerData : MonoBehaviour
             ProductionDatas = Productions.Select(a => a.ProductionData).ToList(),
             HumanSkinDatas = HumanSkins.Select(a => a.HumanSkinData).ToList()
         };
-    }
-
-    public void Save()
-    {
     }
 }

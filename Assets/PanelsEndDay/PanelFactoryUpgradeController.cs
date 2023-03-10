@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class PanelFactoryUpgradeController : MonoBehaviour
 {
@@ -21,6 +22,16 @@ public class PanelFactoryUpgradeController : MonoBehaviour
     public Text priceGoldCapacity;
     public Text priceDebrisCapacity;
 
+    ManagerResources _managerResources;
+    PanelFactorysController _panelFactoriesController;
+
+    [Inject]
+    public void Construct(ManagerResources managerResources, PanelFactorysController panelFactorysController)
+    {
+        _managerResources = managerResources;
+        _panelFactoriesController = panelFactorysController;
+    }
+
     public void Load()
     {
         levelEfficiency.text = factory.FactoryData.LevelEfficiency.ToString();
@@ -35,15 +46,15 @@ public class PanelFactoryUpgradeController : MonoBehaviour
         var countDebris = factory.GetDebrisPriceUpgradeEfficiency();
         priceGoldEfficiency.text = factory.GetGoldPriceUpgradeEfficiency().ToString();
         priceGoldCapacity.text = factory.GetGoldPriceUpgradeCapacity().ToString();
-        panelEfficiency.SetActive(ManagerResources.Instantiate.gold.Count < countGold ||
-                                  ManagerResources.Instantiate.debris.Count < countDebris);
+        panelEfficiency.SetActive(_managerResources.gold.Count < countGold ||
+                                  _managerResources.debris.Count < countDebris);
 
         countGold = factory.GetGoldPriceUpgradeCapacity();
         countDebris = factory.GetDebrisPriceUpgradeCapacity();
         priceDebrisEfficiency.text = factory.GetDebrisPriceUpgradeEfficiency().ToString();
         priceDebrisCapacity.text = factory.GetDebrisPriceUpgradeCapacity().ToString();
-        panelCapacity.SetActive(ManagerResources.Instantiate.gold.Count < countGold ||
-                                ManagerResources.Instantiate.debris.Count < countDebris);
+        panelCapacity.SetActive(_managerResources.gold.Count < countGold ||
+                                _managerResources.debris.Count < countDebris);
     }
 
     public void ButtonUpgradeEfficiency()
@@ -51,18 +62,18 @@ public class PanelFactoryUpgradeController : MonoBehaviour
         var countGold = factory.GetGoldPriceUpgradeEfficiency();
         var countDebris = factory.GetDebrisPriceUpgradeEfficiency();
 
-        if (ManagerResources.Instantiate.gold.Count < countGold ||
-            ManagerResources.Instantiate.debris.Count < countDebris) return;
+        if (_managerResources.gold.Count < countGold ||
+            _managerResources.debris.Count < countDebris) return;
 
-        ManagerResources.Instantiate.gold.Eat(countGold);
-        ManagerResources.Instantiate.WriteStatistic(
-            ManagerResources.Instantiate.gold, "Траты на улучшение", countGold,false);
-        ManagerResources.Instantiate.debris.Eat(countDebris);
-        ManagerResources.Instantiate.WriteStatistic(
-            ManagerResources.Instantiate.debris, "Траты на улучшение", countDebris, false);
+        _managerResources.gold.Eat(countGold);
+        _managerResources.WriteStatistic(
+            _managerResources.gold, "Траты на улучшение", countGold,false);
+        _managerResources.debris.Eat(countDebris);
+        _managerResources.WriteStatistic(
+            _managerResources.debris, "Траты на улучшение", countDebris, false);
 
         factory.UpLevelEfficiency();
-        PanelFactorysController.Instantiate.End();
+        _panelFactoriesController.End();
     }
 
     public void ButtonUpgradeCapacity()
@@ -70,17 +81,17 @@ public class PanelFactoryUpgradeController : MonoBehaviour
         var countGold = factory.GetGoldPriceUpgradeCapacity();
         var countDebris = factory.GetDebrisPriceUpgradeCapacity();
 
-        if (ManagerResources.Instantiate.gold.Count < countGold ||
-            ManagerResources.Instantiate.debris.Count < countDebris) return;
+        if (_managerResources.gold.Count < countGold ||
+            _managerResources.debris.Count < countDebris) return;
 
-        ManagerResources.Instantiate.gold.Eat(countGold);
-        ManagerResources.Instantiate.WriteStatistic(
-            ManagerResources.Instantiate.gold, "Траты на улучшение", countGold, false);
-        ManagerResources.Instantiate.debris.Eat(countDebris);
-        ManagerResources.Instantiate.WriteStatistic(
-            ManagerResources.Instantiate.debris, "Траты на улучшение", countDebris, false);
+        _managerResources.gold.Eat(countGold);
+        _managerResources.WriteStatistic(
+            _managerResources.gold, "Траты на улучшение", countGold, false);
+        _managerResources.debris.Eat(countDebris);
+        _managerResources.WriteStatistic(
+            _managerResources.debris, "Траты на улучшение", countDebris, false);
 
         factory.UpLevelCapacity();
-        PanelFactorysController.Instantiate.End();
+        _panelFactoriesController.End();
     }
 }

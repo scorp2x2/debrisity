@@ -2,54 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class DayController : MonoBehaviour
 {
-    public static DayController Instantiate;
 
     public Text dayText;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        Instantiate = this;
-    }
+    PanelFarmController _panelFarmController;
+    ManagerResources _managerResources;
+    GameController _gameController;
+    SityController _sityController;
+    PanelStatsController _panelStatsController;
 
-    // Update is called once per frame
-    void Update()
+    [Inject]
+    public void Construct(PanelFarmController panelFarmController, ManagerResources managerResources, GameController gameController, SityController sityController, PanelStatsController panelStatsController)
     {
+        _panelFarmController = panelFarmController;
+        _managerResources = managerResources;
+        _gameController = gameController;
+        _sityController = sityController;
+        _panelStatsController = panelStatsController;
     }
 
     public void ReDrawDayCount()
     {
-        dayText.text = ManagerResources.Instantiate.days.Count.ToString();
+        dayText.text = _managerResources.days.Count.ToString();
     }
 
     public void NextDay()
     {
-        PanelFarmController.Instantiate.Show();
-            // PanelFactorysController.Instantiate.Show();
+        _panelFarmController.Show();
     }
 
     public void EndDay()
     {
-        ManagerResources.Instantiate.AddDay();
+        _managerResources.AddDay();
         ////Resources.GenerateRandomValue();
         Debug.Log("CalcEconomicDay");
-        ManagerResources.Instantiate.CalcEconomicDay();
+        _managerResources.CalcEconomicDay();
         Debug.Log("WorkFactorys");
-        SityController.Instantiate.WorkFactorys();
+        _sityController.WorkFactorys();
 
         Debug.Log("CalcPeople");
-        ManagerResources.Instantiate.CalcPeople();
+        _managerResources.CalcPeople();
 
         Debug.Log("UpdateResourcesUI");
-        GameController.Instantiate.UpdateResourcesUi(true);
-        SityController.Instantiate.UpdateInfoFactorys();
+        _gameController.UpdateResourcesUi(true);
+        _sityController.UpdateInfoFactorys();
         Debug.Log("UpdateCountPeople");
-        SityController.Instantiate.UpdateCountPeople();
+        _sityController.UpdateCountPeople();
         ReDrawDayCount();
 
-        PanelStatsController.Instantiate.Show();
+        _panelStatsController.Show();
     }
 }

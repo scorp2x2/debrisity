@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class PanelCardsController : MonoBehaviour
 {
-    public static PanelCardsController Instantiate;
-
-    void Awake()
-    {
-        Instantiate = this;
-    }
-
     public GameObject panel;
     public Transform panelCards;
     public GameObject prefabCard;
@@ -21,6 +15,20 @@ public class PanelCardsController : MonoBehaviour
     public Button buttonLampReset;
 
     private List<Card> _card;
+
+    ManagerResources _managerResources;
+    GameController _gameController;
+    DayController _dayController;
+    DiContainer _diContainer;
+
+    [Inject]
+    public void Construct(ManagerResources managerResources, GameController gameController, DayController dayController, DiContainer diContainer)
+    {
+        _diContainer = diContainer;
+        _managerResources = managerResources;
+        _gameController = gameController;
+        _dayController = dayController;
+    }
 
     public List<Card> Cards
     {
@@ -43,7 +51,7 @@ public class PanelCardsController : MonoBehaviour
     {
         var c = int.Parse(countLampReset.text);
 
-        if (ManagerResources.Instantiate.diamonds.Eat(c))
+        if (_managerResources.diamonds.Eat(c))
         {
             GenerateCard();
         }
@@ -53,13 +61,13 @@ public class PanelCardsController : MonoBehaviour
     {
         var newC = Mathf.RoundToInt(int.Parse(countLampReset.text) * GameConstant.CountUpDiamondFromResetCards);
         countLampReset.text = newC.ToString();
-        if (ManagerResources.Instantiate.diamonds.Count >= newC)
+        if (_managerResources.diamonds.Count >= newC)
         {
             buttonLampReset.interactable = true;
         }
         else
             buttonLampReset.interactable = false;
-        
+
         panelCards.ClearChilds();
         CardControllers.Clear();
 
@@ -70,7 +78,7 @@ public class PanelCardsController : MonoBehaviour
             if (CardControllers.Any(a => a.Card == card))
                 continue;
 
-            var c = Instantiate(prefabCard, panelCards).GetComponent<CardController>();
+            var c = _diContainer.InstantiatePrefab(prefabCard, panelCards).GetComponent<CardController>();
             c.Load(card, this);
             CardControllers.Add(c);
         }
@@ -95,7 +103,7 @@ public class PanelCardsController : MonoBehaviour
     public void End()
     {
         Hide();
-        GameController.Instantiate.UpdateResourcesUi(true);
-        DayController.Instantiate.EndDay();
+        _gameController.UpdateResourcesUi(true);
+        _dayController.EndDay();
     }
 }

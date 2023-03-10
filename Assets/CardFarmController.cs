@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class CardFarmController : MonoBehaviour
 {
@@ -25,9 +26,19 @@ public class CardFarmController : MonoBehaviour
     public int value;
     public int maxValue;
 
+    ManagerResources _managerResources;
+    PanelFarmController _panelFarmController;
+
+    [Inject]
+    public void Construct(ManagerResources managerResources, PanelFarmController panelFarmController)
+    {
+        _managerResources = managerResources;
+        _panelFarmController = panelFarmController;
+    }
+
     public void UpdateValue()
     {
-        maxValue = ManagerResources.Instantiate.people.Count-1;
+        maxValue = _managerResources.people.Count - 1;
 
         slider.maxValue = maxValue;
         textMaxCount.text = maxValue.ToString();
@@ -76,7 +87,7 @@ public class CardFarmController : MonoBehaviour
 
     public void UpdateSlider()
     {
-        value = (int) slider.value;
+        value = (int)slider.value;
         UpdateEnableButton();
         UpdateText();
     }
@@ -90,13 +101,12 @@ public class CardFarmController : MonoBehaviour
         var rPeople = Mathf.RoundToInt(Random.Range(peop.x, peop.y));
         var rRes = Mathf.RoundToInt(Random.Range(res.x, res.y));
         production.Add(rRes);
-        ManagerResources.Instantiate.KillPeople(value - rPeople);
+        _managerResources.KillPeople(value - rPeople);
 
-        ManagerResources.Instantiate.WriteStatistic(production, "Добыто в походе", rRes);
+        _managerResources.WriteStatistic(production, "Добыто в походе", rRes);
         if (value - rPeople > 0)
-            ManagerResources.Instantiate.WriteStatistic(ManagerResources.Instantiate.people, "Погибло в походе", value - rPeople,
-                false);
+            _managerResources.WriteStatistic(_managerResources.people, "Погибло в походе", value - rPeople, false);
 
-        PanelFarmController.Instantiate.End();
+        _panelFarmController.End();
     }
 }

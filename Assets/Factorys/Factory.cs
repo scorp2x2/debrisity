@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "Factory", fileName = "Factory")]
@@ -119,10 +120,10 @@ public class Factory : ScriptableObject
         return increase;
     }
 
-    public void Work()
+    public void Work(ManagerResources managerResources)
     {
         int count = GetProduction();
         production.Add(count);
-        ManagerResources.Instantiate.WriteStatistic(production, messageStatistic, count);
+        managerResources.WriteStatistic(production, messageStatistic, count);
     }
 }

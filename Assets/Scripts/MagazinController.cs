@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class MagazinController : MonoBehaviour
 {
-    public static MagazinController Instantiate;
 
-    private void Awake()
+    HumanSkinMagazin.Factory _skinFactory;
+    SavedController _savedController;
+
+    [Inject]
+    public void Construct(SavedController saveController, HumanSkinMagazin.Factory skinFactory)
     {
-        Instantiate = this;
+        _savedController = saveController;
+        _skinFactory = skinFactory;
     }
 
     public Transform panelSkins;
@@ -28,8 +33,12 @@ public class MagazinController : MonoBehaviour
         panelSkins.ClearChilds();
         foreach (var item in HumanSkins)
         {
-            var h = Instantiate(humanSkinMagazine, panelSkins).GetComponent<HumanSkinMagazin>();
-            h.Load(item);
+            var skin = _skinFactory.Create(item, _savedController).transform;
+            skin.transform.SetParent(panelSkins);
+            skin.transform.localScale = Vector3.one;
+            skin.transform.localPosition = Vector3.one;
+            //var h = Instantiate(humanSkinMagazine, panelSkins).GetComponent<HumanSkinMagazin>();
+            //h.Load(item);
         }
     }
 

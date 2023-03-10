@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class GameOverPanel : MonoBehaviour
 {
@@ -11,12 +12,25 @@ public class GameOverPanel : MonoBehaviour
 
     public ButtonContinueGame ButtonContinueGame;
 
-    
+    SavedController _savedController;
+    ManagerResources _managerResources;
+    GameController _gameController;
+
+    [Inject]
+    public void Construct(SavedController savedController, ManagerResources managerResources, GameController gameController, SignalBus signalBus)
+    {
+        _savedController = savedController;
+        _managerResources = managerResources;
+        _gameController = gameController;
+
+        signalBus.Subscribe<GameOverSignal>(GameOver);
+    }
+
     public void GameOver()
     {
         gameObject.SetActive(true);
 
-        int count = ManagerResources.Instantiate.days.Count;
+        int count = _managerResources.days.Count;
         countDays.text = count.ToString();
 
         int d = count / GameConstant.CountDaysFromDiamond;
@@ -24,7 +38,7 @@ public class GameOverPanel : MonoBehaviour
         {
             countPriseD.text = d.ToString();
             panelDiamonds.SetActive(true);
-            ManagerResources.Instantiate.diamonds.Add(d);
+            _managerResources.diamonds.Add(d);
         }
         else
             panelDiamonds.SetActive(false);
@@ -35,27 +49,27 @@ public class GameOverPanel : MonoBehaviour
 
     public void ButtonNewGame()
     {
-        var c=int.Parse(ButtonContinueGame.textCountD.text);
-        if (c != 0) ManagerResources.Instantiate.diamonds.Add(c);
-        
-        GameController.Instantiate.NewGame();
+        var c = int.Parse(ButtonContinueGame.textCountD.text);
+        if (c != 0) _managerResources.diamonds.Add(c);
+
+        _gameController.NewGame();
     }
 
     public void ButtonContinue()
     {
-        ManagerResources.Instantiate.food.SetDefault();
-        ManagerResources.Instantiate.water.SetDefault();
-        ManagerResources.Instantiate.people.SetDefault();
+        _managerResources.food.SetDefault();
+        _managerResources.water.SetDefault();
+        _managerResources.people.SetDefault();
 
-        GameController.Instantiate.StartGame();
+        _gameController.StartGame();
         gameObject.SetActive(false);
     }
 
     public void ButtonMainMenu()
     {
-        var c=int.Parse(ButtonContinueGame.textCountD.text);
-        if (c != 0) ManagerResources.Instantiate.diamonds.Add(c);
-        
-        SavedController.Instantiate.NewGame();
+        var c = int.Parse(ButtonContinueGame.textCountD.text);
+        if (c != 0) _managerResources.diamonds.Add(c);
+
+        _savedController.NewGame();
     }
 }

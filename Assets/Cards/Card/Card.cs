@@ -4,6 +4,7 @@ using UnityEngine;
   using UnityEditor;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using Zenject;
 
 [CreateAssetMenu(menuName = "Card", fileName = "Card")]
 public class Card : ScriptableObject
@@ -14,14 +15,21 @@ public class Card : ScriptableObject
 
     [FormerlySerializedAs("Cards")] public List<CardPrize> CardPrizes;
 
+    //PanelCardsController _panelCardsController;
 
-    public void Complete()
+    //[Inject]
+    //public void Construct(PanelCardsController panelCardsController)
+    //{
+    //    _panelCardsController = panelCardsController;
+    //}
+
+    public void Complete(ManagerResources managerResources)
     {
         foreach (var element in CardPrizes) {
-    		element.Complete();
+    		element.Complete(managerResources);
         }
-    	
-    	PanelCardsController.Instantiate.End();
+
+        //_panelCardsController.End();
     }
 }
 

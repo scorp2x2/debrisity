@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class CardController : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class CardController : MonoBehaviour
     public PanelCardsController PanelCardsController;
 
     public Card Card;
+
+    ManagerResources _managerResources;
+
+    [Inject]
+    public void Construct(ManagerResources managerResources)
+    {
+        _managerResources = managerResources;
+    }
 
     public void Load(Card card, PanelCardsController panelCardsController)
     {
@@ -57,7 +66,7 @@ public class CardController : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        Card.Complete();
-        PanelCardsController.Hide();
+        Card.Complete(_managerResources);
+        PanelCardsController.End();
     }
 }

@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class LampController : MonoBehaviour
 {
     private float time;
     private bool isSpawn;
+
+    SavedController _savedController;
+    ManagerResources _managerResources;
+
+    [Inject]
+    public void Construct(SavedController savedController, ManagerResources managerResources)
+    {
+        _savedController = savedController;
+        _managerResources = managerResources;
+    }
 
     public void Spawn()
     {
@@ -24,9 +35,9 @@ public class LampController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ManagerResources.Instantiate.diamonds.Add(1);
+        _managerResources.diamonds.Add(1);
         Debug.Log("AddLamp");
-        SavedController.Instantiate.SaveGame();
+        _savedController.SaveGame();
         gameObject.SetActive(false);
         isSpawn = false;
     }

@@ -3,27 +3,37 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using Zenject;
 
 public class SityController : MonoBehaviour
 {
-    public static SityController Instantiate;
     public List<HumanSkin> HumanSkins;
     public GameObject panelPeoples;
     public List<HumanController> peoples;
 
     public List<FactoryController> factorys;
 
+    ManagerResources _managerResources;
+    HumanController.Factory _humanFactory;
+    DiContainer _container;
+
+    [Inject]
+    public void Construct(ManagerResources managerResources, HumanController.Factory humanFactory, DiContainer container)
+    {
+        _container = container;
+        _humanFactory = humanFactory;
+        _managerResources = managerResources;
+    }
+
     void Awake()
     {
-        Instantiate = this;
-
         factorys = FindObjectsOfType<FactoryController>().ToList();
         HumanSkins = Resources.LoadAll<HumanSkin>("HumanSkins").Where(a => a.HumanSkinData.IsSelected).ToList();
     }
 
     public void UpdateCountPeople()
     {
-        var count = (int) Mathf.Round(ManagerResources.Instantiate.people.Count * Random.Range(.7f, 1.3f));
+        var count = (int) Mathf.Round(_managerResources.people.Count * Random.Range(.7f, 1.3f));
         count = Mathf.Min(count, GameConstant.MaxCountHumanInCity);
         if (count < peoples.Count)
         {
@@ -50,8 +60,11 @@ public class SityController : MonoBehaviour
 
     public void SpawnPeople()
     {
-        var p = Instantiate(HumanSkins.GetRandomElement().Prefab, panelPeoples.transform)
-            .GetComponent<HumanController>();
+        //var p = Instantiate(HumanSkins.GetRandomElement().Prefab, panelPeoples.transform)
+        //    .GetComponent<HumanController>();
+        var p = _container.InstantiatePrefab((UnityEngine.Object)HumanSkins.GetRandomElement().Prefab, panelPeoples.transform).GetComponent<HumanController>();
+        //var human = _humanFactory.Create(this, _managerResources);
+
         peoples.Add(p);
     }
 
@@ -59,7 +72,7 @@ public class SityController : MonoBehaviour
     {
         foreach (var element in factorys)
         {
-            element.Work();
+            element.Work(_managerResources);
         }
     }
 

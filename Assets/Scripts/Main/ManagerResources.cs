@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class ManagerResources : MonoBehaviour
 {
-    public static ManagerResources Instantiate;
-
     public Dictionary<Production, List<StatisticResourceElement>> resourcesLogic;
 
     public Production water;
@@ -16,6 +15,17 @@ public class ManagerResources : MonoBehaviour
     public Production days;
     public Production diamonds;
 
+    SignalBus _signalBus;
+    [Inject]
+    ManagerFactorys _managerFactorys;
+
+    [Inject]
+    public void Construct(SignalBus signalBus)
+    {
+        _signalBus = signalBus;
+        resourcesLogic = new Dictionary<Production, List<StatisticResourceElement>>();
+    }
+
     public void SetDefault()
     {
         water.SetDefault();
@@ -25,23 +35,16 @@ public class ManagerResources : MonoBehaviour
         people.SetDefault();
         days.SetDefault();
     }
-    
-    void Awake()
-    {
-        Instantiate = this;
-        resourcesLogic = new Dictionary<Production, List<StatisticResourceElement>>();
-    }
 
     //Один человек пьёт примерно 0.3-0.4 воды в день
     //Один человек ест примерно 0.3-0.4 еды в день
-
     public void CalcEconomicDay()
     {
         var countP = people.Count;
         var drinkWater = CalcEat();
         var eatFood = CalcEat();
-        var addGold = Mathf.RoundToInt(countP * ManagerFactorys.Instantiate.gold.GetProduction() / 10f);
-        var addDebris = Mathf.RoundToInt(countP * ManagerFactorys.Instantiate.debris.GetProduction() / 10f);
+        var addGold = Mathf.RoundToInt(countP * _managerFactorys.gold.GetProduction() / 10f);
+        var addDebris = Mathf.RoundToInt(countP * _managerFactorys.debris.GetProduction() / 10f);
 
         food.Eat(eatFood);
         WriteStatistic(food, "Затраты за день", eatFood, false);
@@ -55,8 +58,7 @@ public class ManagerResources : MonoBehaviour
 
     public int CalcEat()
     {
-        var count = Mathf.Round(people.Count *
-                                Random.Range(GameConstant.CountEatPeople.x, GameConstant.CountEatPeople.y));
+        var count = Mathf.Round(people.Count * Random.Range(GameConstant.CountEatPeople.x, GameConstant.CountEatPeople.y));
         if (people.Count > people.MaxCount)
             count += Mathf.Round(people.MaxCount - people.Count * Random.Range(.3f, .4f)) *
                      (1 - people.Count / people.MaxCount);
@@ -103,7 +105,7 @@ public class ManagerResources : MonoBehaviour
                 livePeople += Mathf.RoundToInt(c + c * (days.Count / GameConstant.UpNewPeople));
             }
 
-            var increase = ManagerFactorys.Instantiate.people.GetIncrease();
+            var increase = _managerFactorys.people.GetIncrease();
             if (increase != 0)
                 livePeople = Mathf.RoundToInt(livePeople * increase);
         }
@@ -123,7 +125,7 @@ public class ManagerResources : MonoBehaviour
         people.Eat(count);
         if (people.Count <= 0)
         {
-            GameController.Instantiate.GameOver();
+            _signalBus.Fire<GameOverSignal>();
         }
     }
 
@@ -137,13 +139,11 @@ public class ManagerResources : MonoBehaviour
 
     public void ClearStatistic()
     {
-        resourcesLogic.Clear();
+        resourcesLogic?.Clear();
     }
 
     public void AddDay()
     {
         days.Add(1);
     }
-
-   
 }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class HumanController : MonoBehaviour
+public class HumanController : MonoBehaviour, IPoolable<SityController, ManagerResources, IMemoryPool>
 {
     public Vector4 margin;
     public Vector2 sizeSity;
@@ -14,6 +15,29 @@ public class HumanController : MonoBehaviour
     public int spawnLampDay;
 
     public LampController lamp;
+
+    [Inject]
+    public SityController _sityController;
+    [Inject]
+    public ManagerResources _managerResources;
+
+    //[Inject]
+    //public void Construct(SityController sityController, ManagerResources managerResources)
+    //{
+    //    _sityController = sityController;
+    //    _managerResources = managerResources;
+    //}
+
+    public void OnDespawned()
+    {
+
+    }
+
+    public void OnSpawned(SityController p1, ManagerResources p2, IMemoryPool p3)
+    {
+        _sityController = p1;
+        _managerResources = p2;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,16 +60,16 @@ public class HumanController : MonoBehaviour
     void GenerateLamp()
     {
         var r = Random.Range(.000f, 1.000f);
-        var p = 2f / (float)SityController.Instantiate.peoples.Count;
+        var p = 2f / (float)_sityController.peoples.Count;
         if (r <= p)
         {
-            spawnLampDay = ManagerResources.Instantiate.days.Count + Random.Range(1, GameConstant.CountDaysFromDiamond);
+            spawnLampDay = _managerResources.days.Count + Random.Range(1, GameConstant.CountDaysFromDiamond);
         }
         else
             spawnLampDay = -1;
     }
-    
-    
+
+
     float distantion = 0;
 
     // Update is called once per frame
@@ -69,7 +93,7 @@ public class HumanController : MonoBehaviour
         distantion = Vector3.Distance(rect.localPosition, pointMove);
 
         if (lamp != null)
-            if (spawnLampDay == ManagerResources.Instantiate.days.Count)
+            if (spawnLampDay == _managerResources.days.Count)
             {
                 lamp.Spawn();
                 GenerateLamp();
@@ -81,5 +105,10 @@ public class HumanController : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    public class Factory : PlaceholderFactory<SityController, ManagerResources, HumanController>
+    {
+
     }
 }

@@ -2,18 +2,31 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instantiate;
-
     public GameOverPanel gameOverPanel;
     public List<ResourceController> resourceControllers;
 
+    SavedController _savedController;
+    ManagerResources _managerResources;
+    PanelStatsController _panelStatsController;
+    DayController _dayController;
+    SityController _sityController;
+
+    [Inject]
+    public void Construct(SavedController savedController, ManagerResources managerResources, PanelStatsController panelStatsController, DayController dayController, SityController sityController)
+    {
+        _savedController = savedController;
+        _managerResources = managerResources;
+        _panelStatsController = panelStatsController;
+        _dayController = dayController;
+        _sityController = sityController;
+    }
+
     void Awake()
     {
-        Instantiate = this;
-
         resourceControllers = FindObjectsOfType<ResourceController>().ToList();
         StartGame();
     }
@@ -21,18 +34,18 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         gameOverPanel.gameObject.SetActive(false);
-        SityController.Instantiate.UpdateCountPeople();
-        ManagerResources.Instantiate?.ClearStatistic();
-        DayController.Instantiate.ReDrawDayCount();
-        PanelStatsController.Instantiate?.Hide();
-        SityController.Instantiate.UpdateInfoFactorys();
+        _sityController.UpdateCountPeople();
+        _managerResources.ClearStatistic();
+        _dayController.ReDrawDayCount();
+        _panelStatsController.Hide();
+        _sityController.UpdateInfoFactorys();
 
         UpdateResourcesUi(false);
     }
 
     public void NewGame()
     {
-        SavedController.Instantiate.NewGame();
+        _savedController.NewGame();
         StartGame();
     }
 
@@ -42,10 +55,5 @@ public class GameController : MonoBehaviour
         {
             element.UpdateValue(isUpdateArrow);
         }
-    }
-
-    public void GameOver()
-    {
-        gameOverPanel.GameOver();
     }
 }

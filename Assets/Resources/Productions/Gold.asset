@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 9904c67e5dfb7664caf6d2714493d820, type: 3}
   name: "\u0417\u043E\u043B\u043E\u0442\u043E"
+  ProductionData:
+    count: 10
   Factory: {fileID: 11400000, guid: 89a099cb8a0e944469c270f0c10208e1, type: 2}
   limitMax: 0
   limitMin: 1

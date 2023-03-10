@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class PanelFarmController : MonoBehaviour
 {
-    public static PanelFarmController Instantiate;
-
-    void Awake()
-    {
-        Instantiate = this;
-    }
-
     public GameObject panelFarms;
     public List<CardFarmController> CardsFarm;
+
+    GameController _gameController;
+    PanelFactorysController _panelFactorysController;
+
+    [Inject]
+    public void Construct(GameController gameController, PanelFactorysController panelFactorysController)
+    {
+        _gameController = gameController;
+        _panelFactorysController = panelFactorysController;
+    }
 
     public void Show()
     {
@@ -29,7 +33,7 @@ public class PanelFarmController : MonoBehaviour
     public void End()
     {
         Hide();
-        GameController.Instantiate.UpdateResourcesUi(true);
-        PanelFactorysController.Instantiate.Show();
+        _gameController.UpdateResourcesUi(true);
+        _panelFactorysController.Show();
     }
 }

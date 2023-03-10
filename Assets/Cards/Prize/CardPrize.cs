@@ -15,7 +15,8 @@ public class CardPrize : ScriptableObject
 
     public string Text;
     
-    public virtual void Complete(){
+    public virtual void Complete(ManagerResources managerResources)
+    {
     	
     }
 }

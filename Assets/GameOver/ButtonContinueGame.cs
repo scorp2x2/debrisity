@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ButtonContinueGame : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class ButtonContinueGame : MonoBehaviour
 
     public int countReset = 1;
 
+    ManagerResources _managerResources;
+
+    [Inject]
+    public void Construct(ManagerResources managerResources)
+    {
+        _managerResources = managerResources;
+    }
 
     public void ReDraw()
     {
@@ -20,14 +28,14 @@ public class ButtonContinueGame : MonoBehaviour
                                  Mathf.Pow(GameConstant.CountUpDiamondFromResetCards, countReset - 1));
         textCountD.text = c.ToString();
 
-        GetComponent<Button>().interactable = ManagerResources.Instantiate.diamonds.Count >= c;
+        GetComponent<Button>().interactable = _managerResources.diamonds.Count >= c;
     }
 
     public void ButtonContinue()
     {
         var c = Mathf.RoundToInt(GameConstant.CountDiamondContinue *
                                  Mathf.Pow(GameConstant.CountUpDiamondFromResetCards, countReset - 1));
-        if (ManagerResources.Instantiate.diamonds.Eat(c))
+        if (_managerResources.diamonds.Eat(c))
         {
             countReset++;
             FindObjectOfType<GameOverPanel>()?.ButtonContinue();

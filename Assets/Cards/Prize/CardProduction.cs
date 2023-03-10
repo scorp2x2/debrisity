@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 [Serializable]
 [CreateAssetMenu(menuName = "CardsPrize/CardPrizeProduction", fileName = "CardPrizeProduction")]
@@ -12,18 +13,27 @@ public class CardProduction : CardPrize
 
     public Production production;
 
-    public override void Complete()
+    ////[Inject]
+    //ManagerResources _managerResources;
+
+    //[Inject]
+    //public void Construct(ManagerResources managerResources)
+    //{
+    //    _managerResources = managerResources;
+    //}
+
+    public override void Complete(ManagerResources managerResources)
     {
         var p = GetPrizeCount();
         if (CardPrizeVector == CardPrizeVector.Positive)
         {
             production.Add(p);
-            ManagerResources.Instantiate.WriteStatistic(production, "Награда за событие", p);
+            managerResources.WriteStatistic(production, "Награда за событие", p);
         }
         else
         {
             production.Eat(p);
-            ManagerResources.Instantiate.WriteStatistic(production, "Затраты за событие", p, false);
+            managerResources.WriteStatistic(production, "Затраты за событие", p, false);
         }
     }
 

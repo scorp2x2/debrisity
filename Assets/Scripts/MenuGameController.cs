@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class MenuGameController : MonoBehaviour
 {
@@ -11,13 +12,17 @@ public class MenuGameController : MonoBehaviour
     public Transform humanPanel;
     public List<HumanSkin> HumanSkins;
 
+    SavedController _savedController;
+
     // Start is called before the first frame update
-    void Start()
+    [Inject]
+    void Construct(SavedController savedController)
     {
-        buttonContinue.interactable = File.Exists(SavedController.Instantiate.pathSave);
+        _savedController = savedController;
+
+        buttonContinue.interactable = File.Exists(_savedController.pathSave);
         HumanSkins = Resources.LoadAll<HumanSkin>("HumanSkins").ToList();
-        
-        SavedController.Instantiate.LoadGame();
+
         UpdateHumanSkins();
     }
 

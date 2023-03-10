@@ -5,51 +5,64 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Linq;
+using Zenject;
+using Newtonsoft.Json;
 
-public class SavedController : MonoBehaviour
+public class SavedController
 {
-    public static SavedController Instantiate;
+    public PlayerData PlayerData;
+
+    [Inject]
+    private void Construct(PlayerData playerData)
+    {
+        PlayerData = playerData;
+        LoadGame();
+    }
+
 
     public string pathSave
     {
         get => Application.persistentDataPath + "/DSSaveData.ds";
     }
 
-    private void Awake()
-    {
-        Instantiate = this;
-    }
-    
     public void SaveGame()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(pathSave);
+        //BinaryFormatter bf = new BinaryFormatter();
+        //FileStream file = File.Create(pathSave);
 
-        bf.Serialize(file, PlayerData.Instantiate.PlayerStaticData);
-        file.Close();
-        Debug.Log("Game data saved!");
+        //bf.Serialize(file, PlayerData.PlayerStaticData);
+        //file.Close();
+
+        using (var writer = File.CreateText(pathSave))
+        {
+            var serializer = new JsonSerializer();
+            serializer.Serialize(writer, PlayerData.PlayerStaticData);
+            Debug.Log("Game data saved! - " + pathSave);
+        }
     }
 
     public void LoadGame()
     {
         if (File.Exists(pathSave))
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file =
-                File.Open(pathSave, FileMode.Open);
-            PlayerData data = (PlayerData) bf.Deserialize(file);
-            file.Close();
+            //BinaryFormatter bf = new BinaryFormatter();
+            //FileStream file = File.Open(pathSave, FileMode.Open);
+            //var data = (PlayerStaticData) bf.Deserialize(file);
+            //file.Close();
+
+            var reader = File.ReadAllText(pathSave);
+            var data = JsonConvert.DeserializeObject<PlayerStaticData>(reader);
 
             for (int i = 0; i < data.FactoryDatas.Count; i++)
-                Factories[i].FactoryData = data.FactoryDatas[i];
+                PlayerData.Factories[i].FactoryData.Load(data.FactoryDatas[i]);
             for (int i = 0; i < data.ProductionDatas.Count; i++)
-                Productions[i].ProductionData = data.ProductionDatas[i];
+                PlayerData.Productions[i].ProductionData.Load(data.ProductionDatas[i]);
             for (int i = 0; i < data.HumanSkinDatas.Count; i++)
-                HumanSkins[i].HumanSkinData = data.HumanSkinDatas[i];
-            
-            
+                PlayerData.HumanSkins.Find(a => a.HumanSkinData.Name == data.HumanSkinDatas[i].Name).HumanSkinData.Load(data.HumanSkinDatas[i]);
 
-            Debug.Log("Game data loaded!");
+
+
+            Debug.Log("Game data loaded! - " + pathSave);
         }
         else
             NewGame();
@@ -57,8 +70,9 @@ public class SavedController : MonoBehaviour
 
     public void NewGame()
     {
-        Factories.ForEach(a => a.SetDefault());
-        Productions.ForEach(a=>a.SetDefault());
+        PlayerData.Factories.ForEach(a => a.SetDefault());
+        PlayerData.Productions.ForEach(a=>a.SetDefault());
+        Debug.Log("New game!");
         SaveGame();
     }
 }
