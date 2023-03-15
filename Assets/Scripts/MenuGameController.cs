@@ -20,21 +20,21 @@ public class MenuGameController : MonoBehaviour
     {
         _savedController = savedController;
 
-        buttonContinue.interactable = File.Exists(_savedController.pathSave);
+        buttonContinue.interactable = !savedController.GameSaveData.IsNewGame;
         HumanSkins = Resources.LoadAll<HumanSkin>("HumanSkins").ToList();
 
         UpdateHumanSkins();
     }
 
+    public void NewGame()
+    {
+        _savedController.NewGame();
+    }
+
     public void UpdateHumanSkins()
     {
         humanPanel.ClearChilds();
-        var h=Instantiate(HumanSkins.GetRandomElement().Prefab, humanPanel).GetComponent<HumanController>();
+        var h = Instantiate(HumanSkins.GetRandomElement().Prefab, humanPanel).GetComponent<HumanController>();
         h.enabled = false;
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

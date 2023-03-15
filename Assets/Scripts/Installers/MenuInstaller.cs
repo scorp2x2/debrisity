@@ -7,7 +7,6 @@ using Zenject;
 public class MenuInstaller : MonoInstaller
 {
     public Settings settings;
-    public PlayerData playerData;
     public SavedController SavedController;
     public ManagerResources ManagerResources;
     public HumanSkinMagazin PrefabSkin;
@@ -22,7 +21,6 @@ public class MenuInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<PlayerData>().AsSingle();
         Container.Bind<SavedController>().AsSingle();
         Container.Bind<ManagerResources>().FromComponentInNewPrefab(ManagerResources).AsSingle();
         Container.Bind<ManagerFactorys>().FromComponentInNewPrefab(ManagerFactorys).AsSingle();

@@ -17,6 +17,7 @@ public class CardFarmController : MonoBehaviour
     public Button buttonN100;
     public Button buttonN10;
     public Button buttonN5;
+    public Button button05;
     public Button buttonP5;
     public Button buttonP10;
     public Button buttonP100;
@@ -38,7 +39,7 @@ public class CardFarmController : MonoBehaviour
 
     public void UpdateValue()
     {
-        maxValue = _managerResources.people.Count - 1;
+        maxValue = _managerResources.people.Count / 2;
 
         slider.maxValue = maxValue;
         textMaxCount.text = maxValue.ToString();
@@ -74,6 +75,11 @@ public class CardFarmController : MonoBehaviour
         peop = new Vector2(value * production.DeadPeopleInRaid.x,
             value * production.DeadPeopleInRaid.y);
         res = new Vector2(value * production.FindResInRaid.x, value * production.FindResInRaid.y);
+    }
+
+    public void Button05People()
+    {
+        slider.value = Mathf.CeilToInt(((float)maxValue) / 2);
     }
 
     public void ButtonAddPeople(int count)

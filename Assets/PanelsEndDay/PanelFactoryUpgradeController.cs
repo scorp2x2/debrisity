@@ -37,10 +37,12 @@ public class PanelFactoryUpgradeController : MonoBehaviour
         levelEfficiency.text = factory.FactoryData.LevelEfficiency.ToString();
         levelCapacity.text = factory.FactoryData.LevelCapacity.ToString();
 
-        textEfficiency.text =
-            $"+{factory.GetProduction(factory.FactoryData.LevelEfficiency)}(+{factory.GetProduction(factory.FactoryData.LevelEfficiency + 1)})";
-        textCapacity.text =
-            $"+{factory.GetMaxStorage()}(+{factory.GetMaxStorage(factory.FactoryData.LevelCapacity + 1)})";
+        textEfficiency.text = String.Format("+{0} ({1})",
+            factory.GetProduction(factory.FactoryData.LevelEfficiency + 1) - factory.GetProduction(),
+            factory.GetProduction(factory.FactoryData.LevelEfficiency + 1));
+        textCapacity.text = String.Format("+{0} ({1})",
+            factory.GetMaxStorage(factory.FactoryData.LevelCapacity + 1) - factory.GetMaxStorage(),
+            factory.GetMaxStorage(factory.FactoryData.LevelCapacity + 1));
 
         var countGold = factory.GetGoldPriceUpgradeEfficiency();
         var countDebris = factory.GetDebrisPriceUpgradeEfficiency();

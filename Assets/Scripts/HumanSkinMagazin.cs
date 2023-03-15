@@ -55,7 +55,7 @@ public class HumanSkinMagazin : MonoBehaviour, IPoolable<HumanSkin, SavedControl
         {
             humanSkin.HumanSkinData.IsBuy = true;
             _magazinController.UpdateInfoSkin();
-            _savedController.SaveGame();
+            _savedController.PlayerSave();
         }
     }
 
@@ -65,7 +65,7 @@ public class HumanSkinMagazin : MonoBehaviour, IPoolable<HumanSkin, SavedControl
 
         humanSkin.HumanSkinData.IsSelected = true;
         _magazinController.UpdateInfoSkin();
-        _savedController.SaveGame();
+        _savedController.PlayerSave();
     }
 
     public void UnSelect()
@@ -74,7 +74,7 @@ public class HumanSkinMagazin : MonoBehaviour, IPoolable<HumanSkin, SavedControl
 
         humanSkin.HumanSkinData.IsSelected = false;
         _magazinController.UpdateInfoSkin();
-        _savedController.SaveGame();
+        _savedController.PlayerSave();
     }
 
     public void OnDespawned()

@@ -15,21 +15,11 @@ public class Card : ScriptableObject
 
     [FormerlySerializedAs("Cards")] public List<CardPrize> CardPrizes;
 
-    //PanelCardsController _panelCardsController;
-
-    //[Inject]
-    //public void Construct(PanelCardsController panelCardsController)
-    //{
-    //    _panelCardsController = panelCardsController;
-    //}
-
     public void Complete(ManagerResources managerResources)
     {
         foreach (var element in CardPrizes) {
     		element.Complete(managerResources);
         }
-
-        //_panelCardsController.End();
     }
 }
 

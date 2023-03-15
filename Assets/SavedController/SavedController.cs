@@ -10,19 +10,35 @@ using Newtonsoft.Json;
 
 public class SavedController
 {
-    public PlayerData PlayerData;
+    public PlayerSaveData PlayerSaveData;
+    public GameSaveData GameSaveData;
 
-    [Inject]
-    private void Construct(PlayerData playerData)
+    Production _lamp;
+    Production Lamp
     {
-        PlayerData = playerData;
-        LoadGame();
+        get
+        {
+            if (_lamp == null)
+            {
+                _lamp = Resources.LoadAll<Production>("").First(a => a.name == "Лампочки");
+            }
+            return _lamp;
+        }
+        set => _lamp = value;
     }
-
 
     public string pathSave
     {
-        get => Application.persistentDataPath + "/DSSaveData.ds";
+        get => Application.persistentDataPath;
+    }
+
+    public string pathGameSave = "DSGameData.ds";
+    public string pathPlayerSave = "DSPlayerData.ds";
+
+    public SavedController()
+    {
+        LoadGame();
+        PlayerLoad();
     }
 
     public void SaveGame()
@@ -32,37 +48,32 @@ public class SavedController
 
         //bf.Serialize(file, PlayerData.PlayerStaticData);
         //file.Close();
+        var path = Path.Combine(pathSave, pathGameSave);
 
-        using (var writer = File.CreateText(pathSave))
+        using (var writer = File.CreateText(path))
         {
             var serializer = new JsonSerializer();
-            serializer.Serialize(writer, PlayerData.PlayerStaticData);
-            Debug.Log("Game data saved! - " + pathSave);
+            serializer.Serialize(writer, GameSaveData);
+            Debug.Log("Game data saved! - " + path);
         }
     }
 
     public void LoadGame()
     {
-        if (File.Exists(pathSave))
+        var path = Path.Combine(pathSave, pathGameSave);
+
+        if (File.Exists(path))
         {
             //BinaryFormatter bf = new BinaryFormatter();
             //FileStream file = File.Open(pathSave, FileMode.Open);
             //var data = (PlayerStaticData) bf.Deserialize(file);
             //file.Close();
 
-            var reader = File.ReadAllText(pathSave);
-            var data = JsonConvert.DeserializeObject<PlayerStaticData>(reader);
-
-            for (int i = 0; i < data.FactoryDatas.Count; i++)
-                PlayerData.Factories[i].FactoryData.Load(data.FactoryDatas[i]);
-            for (int i = 0; i < data.ProductionDatas.Count; i++)
-                PlayerData.Productions[i].ProductionData.Load(data.ProductionDatas[i]);
-            for (int i = 0; i < data.HumanSkinDatas.Count; i++)
-                PlayerData.HumanSkins.Find(a => a.HumanSkinData.Name == data.HumanSkinDatas[i].Name).HumanSkinData.Load(data.HumanSkinDatas[i]);
-
-
-
-            Debug.Log("Game data loaded! - " + pathSave);
+            var reader = File.ReadAllText(path);
+            GameSaveData = JsonConvert.DeserializeObject<GameSaveData>(reader);
+            GameSaveData.Synchronization();
+            
+            Debug.Log("Game data loaded! - " + path);
         }
         else
             NewGame();
@@ -70,9 +81,38 @@ public class SavedController
 
     public void NewGame()
     {
-        PlayerData.Factories.ForEach(a => a.SetDefault());
-        PlayerData.Productions.ForEach(a=>a.SetDefault());
-        Debug.Log("New game!");
+        GameSaveData = GameSaveData.GetDefault();
         SaveGame();
+    }
+
+    public void PlayerSave()
+    {
+        using (var writer = File.CreateText(Path.Combine(pathSave, pathPlayerSave)))
+        {
+            PlayerSaveData.LampCount = (uint)Lamp.Count;
+
+            var serializer = new JsonSerializer();
+            serializer.Serialize(writer, PlayerSaveData);
+        }
+    }
+
+    public void PlayerLoad()
+    {
+        var path = Path.Combine(pathSave, pathPlayerSave);
+
+        if (!File.Exists(path))
+        {
+            PlayerSaveData = PlayerSaveData.GetDefault();
+            Lamp.ProductionData.count = (int)PlayerSaveData.LampCount;
+            PlayerSave();
+        }
+        else
+        {
+            var reader = File.ReadAllText(path);
+            PlayerSaveData = JsonConvert.DeserializeObject<PlayerSaveData>(reader);
+            PlayerSaveData.Synchronization();
+            Lamp.ProductionData.count = (int)PlayerSaveData.LampCount;
+        }
+
     }
 }

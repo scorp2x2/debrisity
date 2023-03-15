@@ -37,7 +37,7 @@ public class LampController : MonoBehaviour
     {
         _managerResources.diamonds.Add(1);
         Debug.Log("AddLamp");
-        _savedController.SaveGame();
+        _savedController.PlayerSave();
         gameObject.SetActive(false);
         isSpawn = false;
     }

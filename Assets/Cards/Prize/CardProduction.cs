@@ -13,15 +13,6 @@ public class CardProduction : CardPrize
 
     public Production production;
 
-    ////[Inject]
-    //ManagerResources _managerResources;
-
-    //[Inject]
-    //public void Construct(ManagerResources managerResources)
-    //{
-    //    _managerResources = managerResources;
-    //}
-
     public override void Complete(ManagerResources managerResources)
     {
         var p = GetPrizeCount();

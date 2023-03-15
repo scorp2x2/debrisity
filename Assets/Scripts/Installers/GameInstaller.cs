@@ -5,7 +5,6 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     public Settings settings;
-    public PlayerData playerData;
     public SavedController SavedController;
     public ManagerResources ManagerResources;
     public ManagerFactorys ManagerFactorys;
@@ -27,7 +26,6 @@ public class GameInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<PlayerData>().AsSingle();
         Container.Bind<SavedController>().AsSingle();
         Container.Bind<ManagerResources>().FromComponentInNewPrefab(ManagerResources).AsSingle();
         Container.Bind<ManagerFactorys>().FromComponentInNewPrefab(ManagerFactorys).AsSingle();
