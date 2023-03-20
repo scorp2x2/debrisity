@@ -12,6 +12,7 @@ public class MenuInstaller : MonoInstaller
     public HumanSkinMagazin PrefabSkin;
     public MagazinController MagazinController;
     public ManagerFactorys ManagerFactorys;
+    public Localization Localization;
 
     //public SaveController SaveController;
     //public Game Game;
@@ -25,6 +26,8 @@ public class MenuInstaller : MonoInstaller
         Container.Bind<ManagerResources>().FromComponentInNewPrefab(ManagerResources).AsSingle();
         Container.Bind<ManagerFactorys>().FromComponentInNewPrefab(ManagerFactorys).AsSingle();
         Container.BindInstance(MagazinController).AsSingle();
+        Container.BindInstance(Localization).AsSingle();
+
         //Container.BindInstance(settings.Borders).AsSingle();
         //Container.BindInstance(AudioMixer).AsSingle();
 

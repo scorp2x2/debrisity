@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CustomEditor(typeof(LocalizationText))]
 [CanEditMultipleObjects]
@@ -19,11 +21,8 @@ public class LocalizationTextEditor : Editor
 
         if (Localization == null) LoadLocalizations();
         LocalizationText = target as LocalizationText;
-        if (LocalizationText.TMP == null)
-        {
-            LocalizationText.TMP = LocalizationText.GetComponent<TextMeshProUGUI>();
-        }
-
+        if (LocalizationText.TMP == null) LocalizationText.TMP = LocalizationText.GetComponent<TextMeshProUGUI>();
+        if (LocalizationText.Text == null) LocalizationText.Text = LocalizationText.GetComponent<Text>(); ;
         EditorGUILayout.LabelField($"Текущее название: {LocalizationText.NameField}");
 
         //serializedObject.Update();
@@ -43,22 +42,33 @@ public class LocalizationTextEditor : Editor
         nameField = Localization.Localizations.Find(a => a.Key == "russian").Value[indexSelected];
 
         LocalizationText.NameField = nameField.Key;
-        LocalizationText.TMP.text = nameField.Value;
+        if (LocalizationText.TMP != null) LocalizationText.TMP.text = nameField.Value;
+        if (LocalizationText.Text != null) LocalizationText.Text.text = nameField.Value;
 
         foreach (var item in Localization.Localizations)
         {
-            var value = item.Value.Find(a => a.Key == nameField.Key);
-            if (value.Value != null)
+            var index = item.Value.FindIndex(a => a.Key == nameField.Key);
+            if (index == -1)
             {
-                EditorGUILayout.LabelField($"{item.Key}: {value.Value}");
+                item.Value.Add(new KeyValuePair<string, string>(nameField.Key,"НЕ ПЕРЕВЕДЕНО!!!"));
+                index = item.Value.FindIndex(a => a.Key == nameField.Key);
             }
-            else
-            {
-                EditorGUILayout.LabelField($"{item.Key}: Не переведено");
-            }
+
+            var key = item.Value[index].Key;
+            var value = item.Value[index].Value;
+
+            item.Value[index] = new KeyValuePair<string, string>(item.Value[index].Key, EditorGUILayout.TextField(item.Key, value));
         }
 
+        //if (GUILayout.Button("Сохранить"))
+        //{
+            SaveLocalizations();
+        //}
+    }
 
+    private void SaveLocalizations()
+    {
+        Localization.SaveLocalizations();
     }
 
     void LoadLocalizations()

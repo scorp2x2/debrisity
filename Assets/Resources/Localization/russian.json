@@ -1,0 +1,98 @@
+[
+  {
+    "Key": "new_game",
+    "Value": "Новая игра"
+  },
+  {
+    "Key": "continue",
+    "Value": "Продолжить"
+  },
+  {
+    "Key": "settings",
+    "Value": "Настройки"
+  },
+  {
+    "Key": "shop",
+    "Value": "Магазин"
+  },
+  {
+    "Key": "records",
+    "Value": "Рекорды"
+  },
+  {
+    "Key": "wardrobe",
+    "Value": "Гардероб"
+  },
+  {
+    "Key": "cancel",
+    "Value": "Отменить"
+  },
+  {
+    "Key": "select",
+    "Value": "Выбрать"
+  },
+  {
+    "Key": "use_accelerometre",
+    "Value": "Управление с помощью акселерометра"
+  },
+  {
+    "Key": "calibrate",
+    "Value": "Откалибровать"
+  },
+  {
+    "Key": "change_language",
+    "Value": "Выберите язык"
+  },
+  {
+    "Key": "use_skin",
+    "Value": "Использовать"
+  },
+  {
+    "Key": "buy_skin",
+    "Value": "Купить"
+  },
+  {
+    "Key": "View_ads",
+    "Value": "Посмотреть рекламу"
+  },
+  {
+    "Key": "buy_remove_ads",
+    "Value": "Отключить рекламу"
+  },
+  {
+    "Key": "buy_10_acorn",
+    "Value": "10 орехов"
+  },
+  {
+    "Key": "buy_50_acorn",
+    "Value": "50 орехов"
+  },
+  {
+    "Key": "buy_150_acorn",
+    "Value": "150 орехов"
+  },
+  {
+    "Key": "pause",
+    "Value": "Пауза"
+  },
+  {
+    "Key": "game_over",
+    "Value": "ВЫ ПРОИГРАЛИ"
+  },
+  {
+    "Key": "restart",
+    "Value": "Посмотрите рекламу, для продолжения"
+  },
+  {
+    "Key": "current_score",
+    "Value": "Вы набрали:"
+  },
+  {
+    "Key": "best_score",
+    "Value": "Лучший рекорд:"
+  },
+  {
+    "Key": "main_menu",
+    "Value": "Главное меню"
+  }
+]

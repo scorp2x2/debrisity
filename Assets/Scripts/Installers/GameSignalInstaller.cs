@@ -14,7 +14,7 @@ public class GameSignalInstaller : Installer<GameSignalInstaller>
         //Container.DeclareSignal<ContinueGameSignal>();
         //Container.DeclareSignal<GameSaveSignal>();
         //Container.DeclareSignal<GameLoadSignal>();
-        //Container.DeclareSignal<ChangeLanguage>();
+        Container.DeclareSignal<ChangeLanguage>();
 
     }
 }

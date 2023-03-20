@@ -15,10 +15,10 @@ MonoBehaviour:
   Icon: {fileID: 0}
   name: "\u0414\u043D\u0438"
   ProductionData:
-    count: 0
+    count: 2
   Factory: {fileID: 0}
   limitMax: 0
   limitMin: 1
   DefaultCount: 0
-  DeadPeopleInRaid: {x: 0.6, y: 1}
-  FindResInRaid: {x: 0.1, y: 0.4}
+  DeadPeopleInRaid: {x: 0.7, y: 1}
+  FindResInRaid: {x: 0.1, y: 0.3}

@@ -17,6 +17,8 @@ public class GameInstaller : MonoInstaller
     public PanelStatsController PanelStatsController;
     public DayController DayController;
 
+    public Localization Localization;
+
     //public HumanSkinMagazin PrefabSkin;
     //public SaveController SaveController;
     //public Game Game;
@@ -37,6 +39,8 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance(PanelCardsController).AsSingle();
         Container.BindInstance(PanelStatsController).AsSingle();
         Container.BindInstance(DayController).AsSingle();
+
+        Container.BindInstance(Localization).AsSingle();
         //Container.BindInstance(settings.Borders).AsSingle();
         //Container.BindInstance(AudioMixer).AsSingle();
 

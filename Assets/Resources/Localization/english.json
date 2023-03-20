@@ -1,0 +1,94 @@
+[
+  {
+    "Key": "new_game",
+    "Value": "New game"
+  },
+  {
+    "Key": "continue",
+    "Value": "Continue"
+  },
+  {
+    "Key": "settings",
+    "Value": "Settings"
+  },
+  {
+    "Key": "shop",
+    "Value": "Shop"
+  },
+  {
+    "Key": "records",
+    "Value": "Records"
+  },
+  {
+    "Key": "use_accelerometre",
+    "Value": "Accelerometer control"
+  },
+  {
+    "Key": "calibrate",
+    "Value": "Calibrate"
+  },
+  {
+    "Key": "change_language",
+    "Value": "Choose language"
+  },
+  {
+    "Key": "use_skin",
+    "Value": "Use"
+  },
+  {
+    "Key": "buy_skin",
+    "Value": "Buy"
+  },
+  {
+    "Key": "View_ads",
+    "Value": "View ads"
+  },
+  {
+    "Key": "buy_remove_ads",
+    "Value": "Remove ads"
+  },
+  {
+    "Key": "buy_10_acorn",
+    "Value": "10 acorn"
+  },
+  {
+    "Key": "buy_50_acorn",
+    "Value": "50 acorn"
+  },
+  {
+    "Key": "buy_150_acorn",
+    "Value": "150 acorn"
+  },
+  {
+    "Key": "pause",
+    "Value": "Pause"
+  },
+  {
+    "Key": "game_over",
+    "Value": "GAME OVER"
+  },
+  {
+    "Key": "restart",
+    "Value": "Watch the ad to continue"
+  },
+  {
+    "Key": "current_score",
+    "Value": "You have scored:"
+  },
+  {
+    "Key": "best_score",
+    "Value": "Best scored:"
+  },
+  {
+    "Key": "wardrobe",
+    "Value": "Wardrobe"
+  },
+  {
+    "Key": "cancel",
+    "Value": "Cancel"
+  },
+  {
+    "Key": "select",
+    "Value": "Select"
+  }
+]

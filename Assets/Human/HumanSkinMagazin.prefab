@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 377351715516482947}
   - component: {fileID: 7440570644367480537}
   - component: {fileID: 2747009693719682334}
+  - component: {fileID: 354304612438172367}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -28,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5413466507138048822}
   m_RootOrder: 0
@@ -79,6 +81,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u041A\u0443\u043F\u0438\u0442\u044C"
+--- !u!114 &354304612438172367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658667106759962195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b000d7eb2725b7543965d57fd3150e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameField: buy_skin
+  TMP: {fileID: 0}
+  Text: {fileID: 2747009693719682334}
 --- !u!1 &738440952296885676
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +125,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 377351715516482947}
   m_Father: {fileID: 6003352873120927498}
@@ -223,6 +241,7 @@ GameObject:
   - component: {fileID: 5605548823985776398}
   - component: {fileID: 3708904370542529143}
   - component: {fileID: 4792697283147424768}
+  - component: {fileID: 102729392100850047}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -240,6 +259,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1167867581143568630}
   m_RootOrder: 0
@@ -291,6 +311,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
+--- !u!114 &102729392100850047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645266791654946736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b000d7eb2725b7543965d57fd3150e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameField: select
+  TMP: {fileID: 0}
+  Text: {fileID: 4792697283147424768}
 --- !u!1 &2770954466128416362
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +352,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 386548596784112591}
   m_Father: {fileID: 4348490600452218392}
@@ -355,6 +391,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4348490600452218392}
   m_RootOrder: 0
@@ -434,6 +471,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7795743386422896296}
   m_RootOrder: 1
@@ -507,6 +545,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1167867581143568630}
   - {fileID: 1681361511921010925}
@@ -544,6 +583,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5083501, y: 3.5083501, z: 3.5083501}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4348490600452218392}
   m_RootOrder: 1
@@ -579,6 +619,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4661071871145392622}
   - {fileID: 5460573364819445030}
@@ -621,6 +662,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5605548823985776398}
   m_Father: {fileID: 7795743386422896296}
@@ -753,6 +795,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6003352873120927498}
   m_RootOrder: 1
@@ -832,6 +875,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2654411991464861044}
   m_Father: {fileID: 6003352873120927498}
@@ -908,6 +952,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164159435401586043}
   m_RootOrder: 0
@@ -984,6 +1029,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1926190840120848347}
   - {fileID: 7761269226307555792}
@@ -991,7 +1037,7 @@ RectTransform:
   - {fileID: 7795743386422896296}
   - {fileID: 1827656221742449051}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1068,6 +1114,7 @@ GameObject:
   - component: {fileID: 8143291890510903904}
   - component: {fileID: 705846550440130168}
   - component: {fileID: 5748862350609500154}
+  - component: {fileID: 8735922750676225993}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1085,6 +1132,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 386548596784112591}
   m_RootOrder: 0
@@ -1136,6 +1184,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"
+--- !u!114 &8735922750676225993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396175768663260542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b000d7eb2725b7543965d57fd3150e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameField: cancel
+  TMP: {fileID: 0}
+  Text: {fileID: 5748862350609500154}
 --- !u!1 &8741391371508455166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1228,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8143291890510903904}
   m_Father: {fileID: 1827656221742449051}
@@ -1297,6 +1361,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6003352873120927498}
   m_RootOrder: 0

@@ -9743,6 +9743,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059372437}
   m_CullTransparentMesh: 1
+--- !u!1 &2123316657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2123316659}
+  - component: {fileID: 2123316658}
+  m_Layer: 0
+  m_Name: Localizations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2123316658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123316657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d72c9bbf77c42b4d8cbc46673f75578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2123316659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123316657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2024724, y: 24.723774, z: -0.76164716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &983671152716250414
 Transform:
   m_ObjectHideFlags: 0
@@ -9802,14 +9846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e69906d35e22a4a9a39cc782c89d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    PlayerStaticData:
-      FactoryDatas: []
-      ProductionDatas: []
-      HumanSkinDatas: []
-    Productions: []
-    Factories: []
-    HumanSkins: []
   ManagerResources: {fileID: 4566967219264361682, guid: b5d2d90557125a542b82bf2eae75f00a, type: 3}
   ManagerFactorys: {fileID: 4638781930557426189, guid: e2c31553f721ec04dbeca38e94e55c2f, type: 3}
   GameController: {fileID: 1393144445}
@@ -9819,6 +9855,7 @@ MonoBehaviour:
   PanelCardsController: {fileID: 750091648}
   PanelStatsController: {fileID: 750091651}
   DayController: {fileID: 1526469670}
+  Localization: {fileID: 2123316658}
 --- !u!1 &983671152716250417
 GameObject:
   m_ObjectHideFlags: 0

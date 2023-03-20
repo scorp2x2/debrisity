@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class LocalizationText : MonoBehaviour
 {
     public string NameField;
     public TextMeshProUGUI TMP;
+    public Text Text;
 
     Localization _localization;
 
@@ -27,6 +29,7 @@ public class LocalizationText : MonoBehaviour
 
     void UpdateText()
     {
-        TMP.text = _localization.GetText(NameField);
+        if (TMP != null) TMP.text = _localization.GetText(NameField);
+        if (Text != null) Text.text = _localization.GetText(NameField);
     }
 }

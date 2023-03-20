@@ -25,24 +25,10 @@ public class Localization : MonoBehaviour
     {
         Localizations = new List<KeyValuePair<string, List<KeyValuePair<string, string>>>>();
 
-        //Localizations.Add(new KeyValuePair<string, List<KeyValuePair<string, string>>>("Russian", new List<KeyValuePair<string, string>>()
-        //{
-        //    new KeyValuePair<string, string>("new_game", "Новая игра")
-        //}));
-
-        //using (var writer = File.CreateText(Path.Combine("Assets/Resources/Localization", "Russian.json")))
-        //{
-        //    var serializer = new JsonSerializer();
-        //    serializer.Serialize(writer, Localizations[0].Value);
-        //}
-        //return;
-
-
         var localizations = Resources.LoadAll<TextAsset>("Localization");
         foreach (var localization in localizations)
         {
             var text = JsonConvert.DeserializeObject<List<KeyValuePair<string, string>>>(localization.text);
-
             Localizations.Add(new KeyValuePair<string, List<KeyValuePair<string, string>>>(localization.name, text));
         }
     }
@@ -69,5 +55,16 @@ public class Localization : MonoBehaviour
         _saveController.PlayerSaveData.Language = language;
         _signalBus.Fire<ChangeLanguage>();
         _saveController.PlayerSave();
+    }
+
+    public void SaveLocalizations()
+    {
+        var localizationsFiles = Resources.LoadAll<TextAsset>("Localization");
+
+        for (int i = 0; i < Localizations.Count; i++)
+        {
+            var item = Localizations[i];
+            File.WriteAllText(Path.Combine("Assets/Resources/Localization", item.Key+".json"), JsonConvert.SerializeObject(item.Value, Formatting.Indented));
+        }
     }
 }
