@@ -8,7 +8,7 @@ public class CardFactory : CardPrize
     public Factory Factory;
     public Boost Boost;
     
-    public override void Complete(ManagerResources managerResources)
+    public override void Complete(ManagerResources managerResources, Localization localization)
     {
         Factory.AddBoost(Boost);
     }

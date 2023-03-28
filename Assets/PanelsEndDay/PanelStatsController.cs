@@ -10,14 +10,16 @@ public class PanelStatsController : MonoBehaviour
 {
     SavedController _savedController;
     ManagerResources _managerResources;
+    Localization _localization;
 
     public GameObject panelStats;
     public TextMeshProUGUI textMeshProUgui;
     public TextMeshProUGUI textMeshProUgui2;
 
     [Inject]
-    public void Construct(SavedController savedController, ManagerResources managerResources)
+    public void Construct(SavedController savedController, ManagerResources managerResources, Localization localization)
     {
+        _localization = localization;
         _savedController = savedController;
         _managerResources = managerResources;
     }
@@ -35,7 +37,7 @@ public class PanelStatsController : MonoBehaviour
             string text = "";
 
             if (_managerResources.resourcesLogic[key].Count(a => a.count != 0) == 0) continue;
-            string name = key.name;
+            string name = _localization.GetText(key.FieldName);
 
             text += $"<B>{name}:</B> \n";
             var sum = 0;
@@ -49,7 +51,7 @@ public class PanelStatsController : MonoBehaviour
                 sum += item.vector ? item.count : -item.count;
             }
 
-            text += $"    <B><color={(sum >= 0 ? "#458600" : "red")}><size=36>Итого: " +
+            text += $"    <B><color={(sum >= 0 ? "#458600" : "red")}><size=36>{_localization.GetText("total")}: " +
                     $"{(sum >= 0 ? "+" : "")}{sum}</B></size></color>\n";
 
             if (key == _managerResources.food || key == _managerResources.water)

@@ -9,4 +9,6 @@ public class HumanSkin : ScriptableObject
     public string Name;
     public int Price;
     public HumanSkinData HumanSkinData;
+
+    public string FieldName { get => $"{name}_{Name}"; }
 }

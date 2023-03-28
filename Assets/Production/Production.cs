@@ -25,6 +25,7 @@ public class Production : ScriptableObject
     {
         get => Factory.GetMaxStorage();
     }
+    public string FieldName { get => base.name; }
 
     public int DefaultCount;
 
@@ -55,7 +56,7 @@ public class Production : ScriptableObject
 
     public void SetDefault()
     {
-        if(DefaultCount==-1)return; 
+        if (DefaultCount == -1) return;
         Count = DefaultCount;
     }
 }

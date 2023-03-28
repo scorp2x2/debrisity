@@ -18,7 +18,7 @@ public class VolumeController : MonoBehaviour
     void Start()
     {
         AudioMixer.GetFloat(nameGroup, out float value);
-        slider.value = value+80;
+        slider.value = value + 80;
         UpdateSlider();
     }
 
@@ -29,7 +29,7 @@ public class VolumeController : MonoBehaviour
 
     public void UpdateSlider()
     {
-        var value = slider.value-80;
+        var value = slider.value - 80;
 
         imageOn.SetActive(value != -80);
         imageOff.SetActive(value == -80);

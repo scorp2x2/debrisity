@@ -25,6 +25,8 @@ public class Factory : ScriptableObject
 
     public FactoryData FactoryData;
 
+    public string FieldName { get => $"{name}"; }
+
     public void UpLevelCapacity() => FactoryData.LevelCapacity++;
     public void UpLevelEfficiency() => FactoryData.LevelEfficiency++;
 
@@ -79,8 +81,8 @@ public class Factory : ScriptableObject
 
     public int GetMaxStorage(int level)
     {
-        if(Capacity==Int32.MaxValue) return Capacity;
-        
+        if (Capacity == Int32.MaxValue) return Capacity;
+
         var p = Instruments.CalcMultiplay(level, multiplayCapacity,
             Capacity);
         return Mathf.RoundToInt(p);
@@ -120,10 +122,10 @@ public class Factory : ScriptableObject
         return increase;
     }
 
-    public void Work(ManagerResources managerResources)
+    public void Work(ManagerResources managerResources, Localization localization)
     {
         int count = GetProduction();
         production.Add(count);
-        managerResources.WriteStatistic(production, messageStatistic, count);
+        managerResources.WriteStatistic(production, localization.GetText(FieldName), count);
     }
 }

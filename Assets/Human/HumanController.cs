@@ -21,13 +21,6 @@ public class HumanController : MonoBehaviour, IPoolable<SityController, ManagerR
     [Inject]
     public ManagerResources _managerResources;
 
-    //[Inject]
-    //public void Construct(SityController sityController, ManagerResources managerResources)
-    //{
-    //    _sityController = sityController;
-    //    _managerResources = managerResources;
-    //}
-
     public void OnDespawned()
     {
 
@@ -79,8 +72,6 @@ public class HumanController : MonoBehaviour, IPoolable<SityController, ManagerR
 
         if (Vector3.Distance(rect.localPosition, pointMove) < 1)
             pointMove = RandomzePoint();
-
-        //time += Time.deltaTime;
     }
 
     Vector3 RandomzePoint()

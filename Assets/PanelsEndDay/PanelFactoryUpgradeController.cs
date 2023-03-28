@@ -24,10 +24,12 @@ public class PanelFactoryUpgradeController : MonoBehaviour
 
     ManagerResources _managerResources;
     PanelFactorysController _panelFactoriesController;
+    Localization _localization;
 
     [Inject]
-    public void Construct(ManagerResources managerResources, PanelFactorysController panelFactorysController)
+    public void Construct(ManagerResources managerResources, PanelFactorysController panelFactorysController, Localization localization)
     {
+        _localization = localization;
         _managerResources = managerResources;
         _panelFactoriesController = panelFactorysController;
     }
@@ -69,10 +71,10 @@ public class PanelFactoryUpgradeController : MonoBehaviour
 
         _managerResources.gold.Eat(countGold);
         _managerResources.WriteStatistic(
-            _managerResources.gold, "Траты на улучшение", countGold,false);
+            _managerResources.gold, _localization.GetText("upgrade_spending"), countGold,false);
         _managerResources.debris.Eat(countDebris);
         _managerResources.WriteStatistic(
-            _managerResources.debris, "Траты на улучшение", countDebris, false);
+            _managerResources.debris, _localization.GetText("upgrade_spending"), countDebris, false);
 
         factory.UpLevelEfficiency();
         _panelFactoriesController.End();
@@ -88,10 +90,10 @@ public class PanelFactoryUpgradeController : MonoBehaviour
 
         _managerResources.gold.Eat(countGold);
         _managerResources.WriteStatistic(
-            _managerResources.gold, "Траты на улучшение", countGold, false);
+            _managerResources.gold, _localization.GetText("upgrade_spending"), countGold, false);
         _managerResources.debris.Eat(countDebris);
         _managerResources.WriteStatistic(
-            _managerResources.debris, "Траты на улучшение", countDebris, false);
+            _managerResources.debris, _localization.GetText("upgrade_spending"), countDebris, false);
 
         factory.UpLevelCapacity();
         _panelFactoriesController.End();

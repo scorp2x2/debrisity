@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class CardPrizeController : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class CardPrizeController : MonoBehaviour
     public Text textInfo;
 
     public CardPrize CardPrize;
+
+    Localization _localization;
+
+    [Inject]
+    public void Construct(Localization localization)
+    {
+        _localization = localization;
+    }
 
     public void LoadInfo(CardPrize cardPrize)
     {
@@ -36,8 +45,8 @@ public class CardPrizeController : MonoBehaviour
 
     public void LoadInfo(CardProduction cardProduction)
     {
-        textInfo.text = cardProduction.Text;
-        textCount.text = $"{(cardProduction.CardPrizeVector==CardPrizeVector.Positive? "+":"-")}{cardProduction.GetPrizeCount()}";
+        textInfo.text = _localization.GetText(cardProduction.FieldName);
+        textCount.text = $"{(cardProduction.CardPrizeVector == CardPrizeVector.Positive ? "+" : "-")}{cardProduction.GetPrizeCount()}";
 
         spitePrize.sprite = cardProduction.production.Icon;
     }

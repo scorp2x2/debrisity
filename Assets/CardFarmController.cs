@@ -29,10 +29,12 @@ public class CardFarmController : MonoBehaviour
 
     ManagerResources _managerResources;
     PanelFarmController _panelFarmController;
+    Localization _localization;
 
     [Inject]
-    public void Construct(ManagerResources managerResources, PanelFarmController panelFarmController)
+    public void Construct(ManagerResources managerResources, PanelFarmController panelFarmController, Localization localization)
     {
+        _localization = localization;
         _managerResources = managerResources;
         _panelFarmController = panelFarmController;
     }
@@ -109,9 +111,9 @@ public class CardFarmController : MonoBehaviour
         production.Add(rRes);
         _managerResources.KillPeople(value - rPeople);
 
-        _managerResources.WriteStatistic(production, "Добыто в походе", rRes);
+        _managerResources.WriteStatistic(production, _localization.GetText("obtained_on_hike"), rRes);
         if (value - rPeople > 0)
-            _managerResources.WriteStatistic(_managerResources.people, "Погибло в походе", value - rPeople, false);
+            _managerResources.WriteStatistic(_managerResources.people, _localization.GetText("died_on_hike"), value - rPeople, false);
 
         _panelFarmController.End();
     }

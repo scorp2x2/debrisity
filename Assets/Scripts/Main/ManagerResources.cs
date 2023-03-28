@@ -16,13 +16,15 @@ public class ManagerResources : MonoBehaviour
     public Production diamonds;
 
     SignalBus _signalBus;
+    Localization _localization;
     [Inject]
     ManagerFactorys _managerFactorys;
 
     [Inject]
-    public void Construct(SignalBus signalBus)
+    public void Construct(SignalBus signalBus, Localization localization)
     {
         _signalBus = signalBus;
+        _localization = localization;
         resourcesLogic = new Dictionary<Production, List<StatisticResourceElement>>();
     }
 
@@ -47,13 +49,13 @@ public class ManagerResources : MonoBehaviour
         var addDebris = Mathf.RoundToInt(countP * _managerFactorys.debris.GetProduction() / 10f);
 
         food.Eat(eatFood);
-        WriteStatistic(food, "Затраты за день", eatFood, false);
+        WriteStatistic(food, _localization.GetText("cost_per_day"), eatFood, false);
         water.Eat(drinkWater);
-        WriteStatistic(water, "Затраты за день", drinkWater, false);
+        WriteStatistic(water, _localization.GetText("cost_per_day"), drinkWater, false);
         gold.Add(addGold);
-        WriteStatistic(gold, "Заработок за день", addGold);
+        WriteStatistic(gold, _localization.GetText("earnings_per_day"), addGold);
         debris.Add(addDebris);
-        WriteStatistic(debris, "Заработок за день", addDebris);
+        WriteStatistic(debris, _localization.GetText("earnings_per_day"), addDebris);
     }
 
     public int CalcEat()
@@ -112,10 +114,10 @@ public class ManagerResources : MonoBehaviour
             
         KillPeople(deadPeople);
         if (deadPeople != 0)
-            WriteStatistic(this.people, "Умерло от голода", deadPeople, false);
+            WriteStatistic(this.people, _localization.GetText("died_of_hunger"), deadPeople, false);
         this.people.Add(livePeople);
         if (livePeople != 0)
-            WriteStatistic(this.people, "Родилось", livePeople);
+            WriteStatistic(this.people, _localization.GetText("born_people"), livePeople);
     }
 
     public void KillPeople(int count)

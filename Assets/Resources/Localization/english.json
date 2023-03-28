@@ -69,7 +69,7 @@
   },
   {
     "Key": "restart",
-    "Value": "Watch the ad to continue"
+    "Value": "Try again?"
   },
   {
     "Key": "current_score",
@@ -90,5 +90,637 @@
   {
     "Key": "select",
     "Value": "Select"
+  },
+  {
+    "Key": "main_menu",
+    "Value": "Main menu"
+  },
+  {
+    "Key": "all_human_die",
+    "Value": "All residents died"
+  },
+  {
+    "Key": "next_day",
+    "Value": "Next day"
+  },
+  {
+    "Key": " days_lived",
+    "Value": "Days lived"
+  },
+  {
+    "Key": "continue?",
+    "Value": "Continue?"
+  },
+  {
+    "Key": "skip",
+    "Value": "Skip"
+  },
+  {
+    "Key": "send_people",
+    "Value": "Send people out for loot"
+  },
+  {
+    "Key": "food",
+    "Value": "Food"
+  },
+  {
+    "Key": "find_food",
+    "Value": "Send people in search of food"
+  },
+  {
+    "Key": "will_be_obtained",
+    "Value": "Will be obtained:"
+  },
+  {
+    "Key": "will_return",
+    "Value": "Will return:"
+  },
+  {
+    "Key": "in_the_squad",
+    "Value": "In the squad:                       "
+  },
+  {
+    "Key": "send",
+    "Value": "Send"
+  },
+  {
+    "Key": "water",
+    "Value": "Water"
+  },
+  {
+    "Key": "find_water",
+    "Value": "Send people to get water"
+  },
+  {
+    "Key": "debris",
+    "Value": "Debris"
+  },
+  {
+    "Key": "send_debris",
+    "Value": "Send people to dig in trash cans"
+  },
+  {
+    "Key": "select_upgrade",
+    "Value": " Choose one of the upgrades"
+  },
+  {
+    "Key": "level_up",
+    "Value": "Upgrade"
+  },
+  {
+    "Key": "level_production",
+    "Value": " Production level:"
+  },
+  {
+    "Key": "level_capacity",
+    "Value": "Capacity level:"
+  },
+  {
+    "Key": "food_room",
+    "Value": "Canteen"
+  },
+  {
+    "Key": "water_room",
+    "Value": "Pump-house"
+  },
+  {
+    "Key": "food_room_info",
+    "Value": "This is where food is prepared for the residents"
+  },
+  {
+    "Key": "water_room_info",
+    "Value": "Pumps water for your city"
+  },
+  {
+    "Key": "barracs",
+    "Value": "Barracks"
+  },
+  {
+    "Key": "barracs_info",
+    "Value": "Your favorite citizens live here"
+  },
+  {
+    "Key": "storage",
+    "Value": "Storage"
+  },
+  {
+    "Key": "storage_info",
+    "Value": "All possible rubbish is stored here, which is at least slightly but useful"
+  },
+  {
+    "Key": "select_card",
+    "Value": "Choose one of the events"
+  },
+  {
+    "Key": "change_event",
+    "Value": "Swap events"
+  },
+  {
+    "Key": "statistic_for_day",
+    "Value": " Statistics per day"
+  },
+  {
+    "Key": "1_Обычный",
+    "Value": "Common"
+  },
+  {
+    "Key": "1_ Обычный",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "2_Супер Житель",
+    "Value": "Super people"
+  },
+  {
+    "Key": "3_Всезнайка",
+    "Value": "Wise guy"
+  },
+  {
+    "Key": "4_Мистер цилиндр",
+    "Value": "Mr top hat"
+  },
+  {
+    "Key": "5_Дровосек",
+    "Value": " Woodcutter"
+  },
+  {
+    "Key": "6_Мужичек",
+    "Value": "Muzichek"
+  },
+  {
+    "Key": "7_Владик",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "8_Младший повар",
+    "Value": " Junior chef"
+  },
+  {
+    "Key": "9_Старший повар",
+    "Value": "Senior cook"
+  },
+  {
+    "Key": "DebrisFactory",
+    "Value": "Earnings per day"
+  },
+  {
+    "Key": "FoodFactory",
+    "Value": "Canteen produced"
+  },
+  {
+    "Key": "GoldFactory",
+    "Value": "Earnings per day"
+  },
+  {
+    "Key": "PeopleFactory",
+    "Value": "People came"
+  },
+  {
+    "Key": "WaterFactory",
+    "Value": "Water produced"
+  },
+  {
+    "Key": "cost_per_day",
+    "Value": "Cost per day"
+  },
+  {
+    "Key": "earnings_per_day",
+    "Value": "Earnings per day"
+  },
+  {
+    "Key": "died_of_hunger",
+    "Value": "Died of hunger"
+  },
+  {
+    "Key": "born_people",
+    "Value": "Born"
+  },
+  {
+    "Key": "Days",
+    "Value": "Days"
+  },
+  {
+    "Key": "Debris",
+    "Value": "Debris"
+  },
+  {
+    "Key": "Food",
+    "Value": "Food"
+  },
+  {
+    "Key": "Gold",
+    "Value": "Gold"
+  },
+  {
+    "Key": "People",
+    "Value": "People"
+  },
+  {
+    "Key": "Water",
+    "Value": "Water"
+  },
+  {
+    "Key": "obtained_on_hike",
+    "Value": "Obtained on a hike"
+  },
+  {
+    "Key": "died_on_hike",
+    "Value": "Died on a hike"
+  },
+  {
+    "Key": "event_reward",
+    "Value": "Event Reward"
+  },
+  {
+    "Key": "event_costs",
+    "Value": "Event costs"
+  },
+  {
+    "Key": "upgrade_spending",
+    "Value": "Upgrade spending"
+  },
+  {
+    "Key": "total",
+    "Value": "Total"
+  },
+  {
+    "Key": "Diamonds",
+    "Value": "Lamps"
+  },
+  {
+    "Key": "23040_1_1",
+    "Value": "Dried fruits"
+  },
+  {
+    "Key": "23058_1_2",
+    "Value": "Dehydration"
+  },
+  {
+    "Key": "23152_4_1",
+    "Value": "Rabbits"
+  },
+  {
+    "Key": "23138_4_2",
+    "Value": "Innocent victims"
+  },
+  {
+    "Key": "23184_6_2",
+    "Value": "Price"
+  },
+  {
+    "Key": "23044_10_2",
+    "Value": "Price"
+  },
+  {
+    "Key": "23178_14_2",
+    "Value": "Price"
+  },
+  {
+    "Key": "23080_18_2",
+    "Value": "Price"
+  },
+  {
+    "Key": "23070_22_2",
+    "Value": "Price"
+  },
+  {
+    "Key": "23088_22_1",
+    "Value": "Water"
+  },
+  {
+    "Key": "23164_26_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23214_26_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23054_30_1",
+    "Value": "Expenses"
+  },
+  {
+    "Key": "23158_30_2",
+    "Value": "Expenses"
+  },
+  {
+    "Key": "23082_30_3",
+    "Value": "Victims"
+  },
+  {
+    "Key": "23028_31_2",
+    "Value": "Expenses"
+  },
+  {
+    "Key": "23034_31_1",
+    "Value": "Expenses"
+  },
+  {
+    "Key": "23190_32_2",
+    "Value": "Victims"
+  },
+  {
+    "Key": "23024_32_1",
+    "Value": "Spoiled"
+  },
+  {
+    "Key": "23210_33_1",
+    "Value": "Spoiled"
+  },
+  {
+    "Key": "23022_34_3",
+    "Value": "Victims"
+  },
+  {
+    "Key": "23030_34_2",
+    "Value": "Stole"
+  },
+  {
+    "Key": "23154_34_1",
+    "Value": "Stole"
+  },
+  {
+    "Key": "23136_35_1",
+    "Value": "Refugees"
+  },
+  {
+    "Key": "23100_36_3",
+    "Value": "People"
+  },
+  {
+    "Key": "23182_36_2",
+    "Value": "Gifts"
+  },
+  {
+    "Key": "23118_36_1",
+    "Value": "Gifts"
+  },
+  {
+    "Key": "23032_37_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23192_37_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23128_38_1",
+    "Value": "New people"
+  },
+  {
+    "Key": "23104_39_2",
+    "Value": "Victims"
+  },
+  {
+    "Key": "23218_39_1",
+    "Value": "Fresh water"
+  },
+  {
+    "Key": "23042_40_2",
+    "Value": "Food"
+  },
+  {
+    "Key": "23206_40_1",
+    "Value": "Water"
+  },
+  {
+    "Key": "23186_Test4_ 4",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23156_Test4_ 3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23124_Test4_ 2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23102_Test3_ 2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23056",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23056_caption",
+    "Value": "Ancient bazaar"
+  },
+  {
+    "Key": "23056_info",
+    "Value": "Finding food in the ancient bazaar"
+  },
+  {
+    "Key": "23212_caption",
+    "Value": "Rain"
+  },
+  {
+    "Key": "23212_info",
+    "Value": "You can collect some water since it started to rain, but you need to spend shards to build water collection points"
+  },
+  {
+    "Key": "23134_2_1",
+    "Value": "Rainwater"
+  },
+  {
+    "Key": "23062_2_2",
+    "Value": "Expenses"
+  },
+  {
+    "Key": "23096_caption",
+    "Value": "Trader"
+  },
+  {
+    "Key": "23096_info",
+    "Value": "A wandering merchant came and offers you to buy some water and food, his prices are certainly not very expensive and he looks good, in general, you can trust his products"
+  },
+  {
+    "Key": "23076_3_1",
+    "Value": "Vodichka"
+  },
+  {
+    "Key": "23132_3_2",
+    "Value": "Edichka"
+  },
+  {
+    "Key": "23094_3_3",
+    "Value": "Price"
+  },
+  {
+    "Key": "23068_caption",
+    "Value": "Easy prey"
+  },
+  {
+    "Key": "23068_info",
+    "Value": "Just a couple of rabbits came running and surrendered to your mercy, of course there are not many of them, but an excellent roast will come out"
+  },
+  {
+    "Key": "23166_caption",
+    "Value": "Increased efficiency"
+  },
+  {
+    "Key": "23166_info",
+    "Value": "After the rains, the water level has risen and now the water tower can work a little faster, although someone may accidentally die, but these are just accompanying victims"
+  },
+  {
+    "Key": "23216_4_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23116_caption",
+    "Value": "Merchant cook"
+  },
+  {
+    "Key": "23116_info",
+    "Value": "The merchant wants to buy some food"
+  },
+  {
+    "Key": "23038_6_1",
+    "Value": "Food"
+  },
+  {
+    "Key": "23140_caption",
+    "Value": "Merchant Vlad"
+  },
+  {
+    "Key": "23140_info",
+    "Value": "The merchant wants to buy some water"
+  },
+  {
+    "Key": "23160_10_1",
+    "Value": "Water"
+  },
+  {
+    "Key": "23174_caption",
+    "Value": "Treasurer"
+  },
+  {
+    "Key": "23174_info",
+    "Value": "The merchant wants to buy some junk"
+  },
+  {
+    "Key": "23208_14_1",
+    "Value": "Debris"
+  },
+  {
+    "Key": "23162_18_1",
+    "Value": "Food"
+  },
+  {
+    "Key": "23204_caption",
+    "Value": "Merchant cook"
+  },
+  {
+    "Key": "23204_info",
+    "Value": "The merchant wants to sell some food"
+  },
+  {
+    "Key": "23126_caption",
+    "Value": "Merchant Vlad"
+  },
+  {
+    "Key": "23126_info",
+    "Value": "The merchant wants to sell some water"
+  },
+  {
+    "Key": "23170_caption",
+    "Value": "Treasurer"
+  },
+  {
+    "Key": "23170_info",
+    "Value": "The merchant wants to sell some junk"
+  },
+  {
+    "Key": "23202_caption",
+    "Value": "Earthquake"
+  },
+  {
+    "Key": "23202_info",
+    "Value": "Suddenly, out of the blue, a 7-point earthquake happened, many people were injured, resources are needed to restore buildings"
+  },
+  {
+    "Key": "23194_caption",
+    "Value": "Earthquake"
+  },
+  {
+    "Key": "23194_info",
+    "Value": "Suddenly, out of the blue, a 10-point earthquake happened, many people were injured, resources are needed to restore buildings"
+  },
+  {
+    "Key": "23176_31_3",
+    "Value": "Victims"
+  },
+  {
+    "Key": "23060_caption",
+    "Value": "Rat raid"
+  },
+  {
+    "Key": "23060_info",
+    "Value": "A pack of rats came from the south and before you realized they were eating your supplies, and one inhabitant died in the confusion"
+  },
+  {
+    "Key": "23048_caption",
+    "Value": "A spoon of tar"
+  },
+  {
+    "Key": "23048_info",
+    "Value": " One of the residents accidentally spilled a fly in the ointment in water supplies"
+  },
+  {
+    "Key": "23078_caption",
+    "Value": "Rogue Raid"
+  },
+  {
+    "Key": "23078_info",
+    "Value": "Robbers attacked from a neighboring settlement, robbed and killed residents"
+  },
+  {
+    "Key": "23198_caption",
+    "Value": "Refugees"
+  },
+  {
+    "Key": "23198_info",
+    "Value": "You have met refugees from the surrounding settlements, they want to take refuge in your house"
+  },
+  {
+    "Key": "23144_caption",
+    "Value": "Travelers"
+  },
+  {
+    "Key": "23144_info",
+    "Value": "Travelers came to you and want to live with you, for this they bring you their gifts"
+  },
+  {
+    "Key": "23108_caption",
+    "Value": "Cupid"
+  },
+  {
+    "Key": "23108_info",
+    "Value": "The holiday is coming, the number of people will increase"
+  },
+  {
+    "Key": "23046_caption",
+    "Value": "Sacrifice"
+  },
+  {
+    "Key": "23046_info",
+    "Value": " The old sorcerer offers to sacrifice people to the gods to increase productivity"
+  },
+  {
+    "Key": "23072_caption",
+    "Value": "Flood"
+  },
+  {
+    "Key": "23072_info",
+    "Value": "Heavy rains raised the water level in the rivers, some residents were washed away, but there is also a plus, there is more water suitable for drinking"
+  },
+  {
+    "Key": "23084_caption",
+    "Value": "Holiday"
+  },
+  {
+    "Key": "23084_info",
+    "Value": "Your settlement staged an unprecedented revelry, a lot of supplies were eaten and drunk"
   }
 ]

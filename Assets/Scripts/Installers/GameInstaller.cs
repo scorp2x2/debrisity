@@ -19,13 +19,6 @@ public class GameInstaller : MonoInstaller
 
     public Localization Localization;
 
-    //public HumanSkinMagazin PrefabSkin;
-    //public SaveController SaveController;
-    //public Game Game;
-    //public AudioMixer AudioMixer;
-    //public Localization Localization;
-    //public Skin PrefabSkin;
-
     public override void InstallBindings()
     {
         Container.Bind<SavedController>().AsSingle();
@@ -41,19 +34,6 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance(DayController).AsSingle();
 
         Container.BindInstance(Localization).AsSingle();
-        //Container.BindInstance(settings.Borders).AsSingle();
-        //Container.BindInstance(AudioMixer).AsSingle();
-
-        //Container.Bind<AdsView>().FromComponentInNewPrefab(AdsView).AsSingle();
-        //Container.Bind<SaveController>().FromComponentInNewPrefab(SaveController).AsSingle();
-
-        //Container.BindInstance(Localization).AsSingle();
-
-        var objects = Resources.LoadAll<ScriptableObject>("Cards");
-        foreach (ScriptableObject scriptObject in objects)
-        {
-            Container.QueueForInject(scriptObject);
-        }
 
         Container.BindFactory<SityController, ManagerResources, HumanController, HumanController.Factory>()
                 .FromPoolableMemoryPool<SityController, ManagerResources, HumanController, HumanControllerPool>();

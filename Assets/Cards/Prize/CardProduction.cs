@@ -13,18 +13,18 @@ public class CardProduction : CardPrize
 
     public Production production;
 
-    public override void Complete(ManagerResources managerResources)
+    public override void Complete(ManagerResources managerResources, Localization localization)
     {
         var p = GetPrizeCount();
         if (CardPrizeVector == CardPrizeVector.Positive)
         {
             production.Add(p);
-            managerResources.WriteStatistic(production, "Награда за событие", p);
+            managerResources.WriteStatistic(production, localization.GetText("event_reward"), p);
         }
         else
         {
             production.Eat(p);
-            managerResources.WriteStatistic(production, "Затраты за событие", p, false);
+            managerResources.WriteStatistic(production, localization.GetText("event_costs"), p, false);
         }
     }
 
@@ -33,9 +33,7 @@ public class CardProduction : CardPrize
         if (!isMultiply)
             return prizeCount;
 
-        float prize = 0;
-
-        prize = productionMultiply.Count * prizeMultiply;
+        float prize = productionMultiply.Count * prizeMultiply;
         if (rangeMultiply.y != -1)
             prize = Mathf.Min(rangeMultiply.y, prize);
         if (rangeMultiply.x != -1)

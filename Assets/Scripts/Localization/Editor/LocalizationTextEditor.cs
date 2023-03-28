@@ -13,6 +13,7 @@ public class LocalizationTextEditor : Editor
 {
     Localization Localization;
     LocalizationText LocalizationText;
+    string newField = "";
 
     int indexSelected;
     KeyValuePair<string, string> nameField;
@@ -36,7 +37,8 @@ public class LocalizationTextEditor : Editor
         }
         if (LocalizationText.NameField != null)
         {
-            indexSelected = Localization.Localizations.Find(a => a.Key == "russian").Value.FindIndex(a => a.Key == LocalizationText.NameField);
+            var locale = Localization.Localizations.Find(a => a.Key == "russian");
+            indexSelected = locale.Value.FindIndex(a => a.Key == LocalizationText.NameField);
         }
         indexSelected = EditorGUILayout.Popup("Название поля:", indexSelected, Localization.Localizations.Find(a => a.Key == "russian").Value.Select(a => a.Key).ToArray());
         nameField = Localization.Localizations.Find(a => a.Key == "russian").Value[indexSelected];
@@ -50,7 +52,7 @@ public class LocalizationTextEditor : Editor
             var index = item.Value.FindIndex(a => a.Key == nameField.Key);
             if (index == -1)
             {
-                item.Value.Add(new KeyValuePair<string, string>(nameField.Key,"НЕ ПЕРЕВЕДЕНО!!!"));
+                item.Value.Add(new KeyValuePair<string, string>(nameField.Key, "НЕ ПЕРЕВЕДЕНО!!!"));
                 index = item.Value.FindIndex(a => a.Key == nameField.Key);
             }
 
@@ -59,11 +61,12 @@ public class LocalizationTextEditor : Editor
 
             item.Value[index] = new KeyValuePair<string, string>(item.Value[index].Key, EditorGUILayout.TextField(item.Key, value));
         }
+        EditorGUILayout.Separator();
+        newField = EditorGUILayout.TextField("Новое поле", newField);
+        if (GUILayout.Button("Добавить поле"))
+            Localization.AddFiled(newField);
 
-        //if (GUILayout.Button("Сохранить"))
-        //{
-            SaveLocalizations();
-        //}
+        SaveLocalizations();
     }
 
     private void SaveLocalizations()
@@ -74,6 +77,6 @@ public class LocalizationTextEditor : Editor
     void LoadLocalizations()
     {
         Localization = FindObjectOfType<Localization>();
-        Localization.LoadLocalizations();
+        Localization.LoadJson();
     }
 }

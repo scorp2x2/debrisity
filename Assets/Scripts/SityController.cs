@@ -60,10 +60,7 @@ public class SityController : MonoBehaviour
 
     public void SpawnPeople()
     {
-        //var p = Instantiate(HumanSkins.GetRandomElement().Prefab, panelPeoples.transform)
-        //    .GetComponent<HumanController>();
         var p = _container.InstantiatePrefab((UnityEngine.Object)HumanSkins.GetRandomElement().Prefab, panelPeoples.transform).GetComponent<HumanController>();
-        //var human = _humanFactory.Create(this, _managerResources);
 
         peoples.Add(p);
     }
@@ -76,37 +73,11 @@ public class SityController : MonoBehaviour
         }
     }
 
-//    public void SetFactoryLevelEfficiency(int level = 1)
-//    {
-//        foreach (var element in factorys)
-//        {
-//            element.SetLevelEfficiency(level);
-//        }
-//    }
-//
-//    public void SetFactoryLevelCapacity(int level = 1)
-//    {
-//        foreach (var element in factorys)
-//        {
-//            element.SetLevelCapacity(level);
-//        }
-//    }
-
     public void UpdateInfoFactorys()
     {
         foreach (var element in factorys)
         {
             element.LoadInfo();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

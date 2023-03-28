@@ -13,6 +13,8 @@ public class Localization : MonoBehaviour
     SignalBus _signalBus;
     SavedController _saveController;
 
+    TextAsset[] _textAssets;
+
     [Inject]
     void Construct(SignalBus signalBus, SavedController saveController)
     {
@@ -25,10 +27,22 @@ public class Localization : MonoBehaviour
     {
         Localizations = new List<KeyValuePair<string, List<KeyValuePair<string, string>>>>();
 
-        var localizations = Resources.LoadAll<TextAsset>("Localization");
-        foreach (var localization in localizations)
+        _textAssets = Resources.LoadAll<TextAsset>("Localization");
+        foreach (var localization in _textAssets)
         {
             var text = JsonConvert.DeserializeObject<List<KeyValuePair<string, string>>>(localization.text);
+            Localizations.Add(new KeyValuePair<string, List<KeyValuePair<string, string>>>(localization.name, text));
+        }
+    }
+
+    public void LoadJson()
+    {
+        Localizations = new List<KeyValuePair<string, List<KeyValuePair<string, string>>>>();
+
+        _textAssets = Resources.LoadAll<TextAsset>("Localization");
+        foreach (var localization in _textAssets)
+        {
+            var text = JsonConvert.DeserializeObject<List<KeyValuePair<string, string>>>(File.ReadAllText(Path.Combine("Assets/Resources/Localization", localization.name + ".json")));
             Localizations.Add(new KeyValuePair<string, List<KeyValuePair<string, string>>>(localization.name, text));
         }
     }
@@ -59,12 +73,21 @@ public class Localization : MonoBehaviour
 
     public void SaveLocalizations()
     {
-        var localizationsFiles = Resources.LoadAll<TextAsset>("Localization");
-
+        foreach (var item in _textAssets)
+            Resources.UnloadAsset(item);
+        
         for (int i = 0; i < Localizations.Count; i++)
         {
             var item = Localizations[i];
-            File.WriteAllText(Path.Combine("Assets/Resources/Localization", item.Key+".json"), JsonConvert.SerializeObject(item.Value, Formatting.Indented));
+            File.WriteAllText(Path.Combine("Assets/Resources/Localization", item.Key + ".json"), JsonConvert.SerializeObject(item.Value, Formatting.Indented));
         }
+
+        LoadJson();
+    }
+
+    public void AddFiled(string newField)
+    {
+        foreach (var item in Localizations)
+            item.Value.Add(new KeyValuePair<string, string>(newField, "ме оепебедемн!!!"));
     }
 }

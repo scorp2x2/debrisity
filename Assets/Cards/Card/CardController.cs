@@ -20,11 +20,15 @@ public class CardController : MonoBehaviour
     public Card Card;
 
     ManagerResources _managerResources;
+    Localization _localization;
+    DiContainer _container;
 
     [Inject]
-    public void Construct(ManagerResources managerResources)
+    public void Construct(ManagerResources managerResources, Localization localization, DiContainer container)
     {
+        _localization = localization;
         _managerResources = managerResources;
+        _container = container;
     }
 
     public void Load(Card card, PanelCardsController panelCardsController)
@@ -32,8 +36,8 @@ public class CardController : MonoBehaviour
         this.Card = card;
         PanelCardsController = panelCardsController;
 
-        textName.text = card.Name;
-        textInfo.text = card.Text;
+        textName.text = _localization.GetText(card.FieldNameCaption);
+        textInfo.text = _localization.GetText(card.FieldNameInfo);
         if (card.Sprite == null) imageFon.gameObject.SetActive(false);
         imageFon.sprite = card.Sprite;
 
@@ -43,7 +47,7 @@ public class CardController : MonoBehaviour
 
         foreach (var prize in card.CardPrizes)
         {
-            var p = Instantiate(prefabPanel, panelPrize).GetComponent<CardPrizeController>();
+            var p = _container.InstantiatePrefab(prefabPanel, panelPrize).GetComponent<CardPrizeController>();
             p.LoadInfo(prize);
             CardPrizeControllers.Add(p);
 
@@ -66,7 +70,7 @@ public class CardController : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        Card.Complete(_managerResources);
+        Card.Complete(_managerResources, _localization);
         PanelCardsController.End();
     }
 }

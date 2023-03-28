@@ -22,18 +22,20 @@ public class HumanSkinMagazin : MonoBehaviour, IPoolable<HumanSkin, SavedControl
     SavedController _savedController;
     ManagerResources _managerResources;
     MagazinController _magazinController;
+    Localization _localization;
 
     [Inject]
-    public void Construct(SavedController savedController, ManagerResources managerResources, MagazinController magazinController)
+    public void Construct(SavedController savedController, ManagerResources managerResources, MagazinController magazinController, Localization localization)
     {
         _savedController = savedController;
         _managerResources = managerResources;
         _magazinController = magazinController;
+        _localization = localization;
     }
 
     public void LoadInfo()
     {
-        nameSkin.text = humanSkin.Name;
+        nameSkin.text = _localization.GetText(humanSkin.FieldName);
         if (!humanSkin.HumanSkinData.IsBuy)
         {
             priceText.text = humanSkin.Price.ToString();

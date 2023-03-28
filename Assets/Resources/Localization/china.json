@@ -4,23 +4,723 @@
     "Value": "New game"
   },
   {
-    "Key": "wardrobe",
-    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
-  },
-  {
-    "Key": "cancel",
-    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
-  },
-  {
-    "Key": "select",
-    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
-  },
-  {
-    "Key": "buy_skin",
-    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+    "Key": "continue",
+    "Value": "Continue"
   },
   {
     "Key": "settings",
+    "Value": "Settings"
+  },
+  {
+    "Key": "shop",
+    "Value": "Shop"
+  },
+  {
+    "Key": "records",
+    "Value": "Records"
+  },
+  {
+    "Key": "use_accelerometre",
+    "Value": "Accelerometer control"
+  },
+  {
+    "Key": "calibrate",
+    "Value": "Calibrate"
+  },
+  {
+    "Key": "change_language",
+    "Value": "Choose language"
+  },
+  {
+    "Key": "use_skin",
+    "Value": "Use"
+  },
+  {
+    "Key": "buy_skin",
+    "Value": "Buy"
+  },
+  {
+    "Key": "View_ads",
+    "Value": "View ads"
+  },
+  {
+    "Key": "buy_remove_ads",
+    "Value": "Remove ads"
+  },
+  {
+    "Key": "buy_10_acorn",
+    "Value": "10 acorn"
+  },
+  {
+    "Key": "buy_50_acorn",
+    "Value": "50 acorn"
+  },
+  {
+    "Key": "buy_150_acorn",
+    "Value": "150 acorn"
+  },
+  {
+    "Key": "pause",
+    "Value": "Pause"
+  },
+  {
+    "Key": "game_over",
+    "Value": "GAME OVER"
+  },
+  {
+    "Key": "restart",
+    "Value": "Try again?"
+  },
+  {
+    "Key": "current_score",
+    "Value": "You have scored:"
+  },
+  {
+    "Key": "best_score",
+    "Value": "Best scored:"
+  },
+  {
+    "Key": "wardrobe",
+    "Value": "Wardrobe"
+  },
+  {
+    "Key": "cancel",
+    "Value": "Cancel"
+  },
+  {
+    "Key": "select",
+    "Value": "Select"
+  },
+  {
+    "Key": "main_menu",
+    "Value": "Main menu"
+  },
+  {
+    "Key": "all_human_die",
+    "Value": "All residents died"
+  },
+  {
+    "Key": "next_day",
+    "Value": "Next day"
+  },
+  {
+    "Key": " days_lived",
+    "Value": "Days lived"
+  },
+  {
+    "Key": "continue?",
+    "Value": "Continue?"
+  },
+  {
+    "Key": "skip",
+    "Value": "Skip"
+  },
+  {
+    "Key": "send_people",
+    "Value": "Send people out for loot"
+  },
+  {
+    "Key": "food",
+    "Value": "Food"
+  },
+  {
+    "Key": "find_food",
+    "Value": "Send people in search of food"
+  },
+  {
+    "Key": "will_be_obtained",
+    "Value": "Will be obtained:"
+  },
+  {
+    "Key": "will_return",
+    "Value": "Will return:"
+  },
+  {
+    "Key": "in_the_squad",
+    "Value": "In the squad:                       "
+  },
+  {
+    "Key": "send",
+    "Value": "Send"
+  },
+  {
+    "Key": "water",
+    "Value": "Water"
+  },
+  {
+    "Key": "find_water",
+    "Value": "Send people to get water"
+  },
+  {
+    "Key": "debris",
+    "Value": "Debris"
+  },
+  {
+    "Key": "send_debris",
+    "Value": "Send people to dig in trash cans"
+  },
+  {
+    "Key": "select_upgrade",
+    "Value": " Choose one of the upgrades"
+  },
+  {
+    "Key": "level_up",
+    "Value": "Upgrade"
+  },
+  {
+    "Key": "level_production",
+    "Value": " Production level:"
+  },
+  {
+    "Key": "level_capacity",
+    "Value": "Capacity level:"
+  },
+  {
+    "Key": "food_room",
+    "Value": "Canteen"
+  },
+  {
+    "Key": "water_room",
+    "Value": "Pump-house"
+  },
+  {
+    "Key": "food_room_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "water_room_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "barracs",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "barracs_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "storage",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "storage_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "select_card",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "change_event",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "statistic_for_day",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "1_Обычный",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "1_ Обычный",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "2_Супер Житель",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "3_Всезнайка",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "4_Мистер цилиндр",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "5_Дровосек",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "6_Мужичек",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "7_Владик",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "8_Младший повар",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "9_Старший повар",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "DebrisFactory",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "FoodFactory",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "GoldFactory",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "PeopleFactory",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "WaterFactory",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "cost_per_day",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "earnings_per_day",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "died_of_hunger",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "born_people",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "Days",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "Debris",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "Food",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "Gold",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "People",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "Water",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "obtained_on_hike",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "died_on_hike",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "event_reward",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "event_costs",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "upgrade_spending",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "total",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "Diamonds",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23040_1_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23058_1_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23152_4_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23138_4_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23184_6_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23044_10_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23178_14_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23080_18_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23070_22_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23088_22_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23164_26_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23214_26_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23054_30_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23158_30_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23082_30_3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23028_31_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23034_31_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23190_32_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23024_32_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23210_33_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23022_34_3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23030_34_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23154_34_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23136_35_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23100_36_3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23182_36_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23118_36_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23032_37_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23192_37_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23128_38_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23104_39_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23218_39_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23042_40_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23206_40_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23186_Test4_ 4",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23156_Test4_ 3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23124_Test4_ 2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23102_Test3_ 2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23056",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23056_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23056_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23212_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23212_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23134_2_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23062_2_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23096_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23096_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23076_3_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23132_3_2",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23094_3_3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23068_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23068_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23166_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23166_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23216_4_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23116_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23116_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23038_6_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23140_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23140_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23160_10_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23174_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23174_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23208_14_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23162_18_1",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23204_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23204_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23126_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23126_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23170_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23170_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23202_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23202_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23194_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23194_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23176_31_3",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23060_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23060_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23048_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23048_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23078_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23078_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23198_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23198_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23144_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23144_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23108_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23108_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23046_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23046_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23072_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23072_info",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23084_caption",
+    "Value": "НЕ ПЕРЕВЕДЕНО!!!"
+  },
+  {
+    "Key": "23084_info",
     "Value": "НЕ ПЕРЕВЕДЕНО!!!"
   }
 ]

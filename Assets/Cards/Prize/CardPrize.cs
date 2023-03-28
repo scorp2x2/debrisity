@@ -14,8 +14,10 @@ public class CardPrize : ScriptableObject
     public CardPrizeVector CardPrizeVector;
 
     public string Text;
-    
-    public virtual void Complete(ManagerResources managerResources)
+
+    public string FieldName { get =>$"{this.GetInstanceID()}_{name}"; }
+
+    public virtual void Complete(ManagerResources managerResources, Localization localization)
     {
     	
     }

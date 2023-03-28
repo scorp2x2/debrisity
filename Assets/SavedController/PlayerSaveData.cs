@@ -37,12 +37,6 @@ public class PlayerSaveData
 
         playerSaveData.HumanSkinDatas.First(a => a.Name == "Обычный").Load(new HumanSkinData() { IsBuy = true, IsSelected = true });
 
-        //playerSaveData.BuySkins = new List<string>()
-        //{
-        //    "0 Skin_Default"
-        //};
-        //playerSaveData.NameSkin = "0 Skin_Default";
-
         return playerSaveData;
     }
 
